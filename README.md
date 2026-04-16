@@ -15,6 +15,7 @@ The Ajentica Team Management Web Application is built with **Angular**, **TypeSc
 
 ## Project Folder Structure
 
+```
 ├── public/
 │
 ├── src/
@@ -71,6 +72,7 @@ The Ajentica Team Management Web Application is built with **Angular**, **TypeSc
 ├── tsconfig.app.json
 ├── tsconfig.json
 └── tsconfig.spec.json
+```
 
 ## Tech Stack
 
@@ -102,12 +104,12 @@ The Ajentica Team Management Web Application is built with **Angular**, **TypeSc
 
 - Run build command for dev:
   ```
-  ng build
+  bun run build
   ```
 - Run build command for production:
 
   ```
-  ng build --configuration production
+  bun run build:prod
 
   ```
 
