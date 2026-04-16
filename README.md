@@ -78,6 +78,7 @@ The Ajentica Team Management Web Application is built with **Angular**, **TypeSc
 - **Language:** TypeScript
 - **Styling:** CSS / Tailwind CSS (as applicable)
 - **Architecture:** Component-based modular structure
+- **package manager:** bun
 
 ## Setup Instructions
 
@@ -97,7 +98,18 @@ The Ajentica Team Management Web Application is built with **Angular**, **TypeSc
   bun install
   ```
 
-## Run Instuctions
+## Build Run Instuctions
+
+- Run build command for dev:
+  ```
+  ng build
+  ```
+- Run build command for production:
+
+  ```
+  ng build --configuration production
+
+  ```
 
 - Start the development server:
   ```
