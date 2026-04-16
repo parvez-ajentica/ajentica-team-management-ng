@@ -15,9 +15,10 @@ The Ajentica Team Management Web Application is built with **Angular**, **TypeSc
 
 ## Project Folder Structure
 
-├──────public/
+```
+├── public/
 │
-│──────src/
+├── src/
 │ ├── app/
 │ │ ├── core/
 │ │ │ ├── services/
@@ -54,30 +55,32 @@ The Ajentica Team Management Web Application is built with **Angular**, **TypeSc
 │ │
 │ ├── main.ts
 │ └── styles.css
-│  
-│──backend-data/
+│
+├── backend-data/
 │ ├── teams.json
 │ ├── members.json
 │ ├── projects.json
-│ ├── users.json
+│ └── users.json
 │
-│── .editorconfig
-│── .gitignore
-│── .postcssrc.json
-│── .prettierrc
-│── angular.json
-│── bun.lock
-│── package.json
-│── tsconfig.app.json
-│── tsconfig.json
-│── tsconfig.spec.json
+├── .editorconfig
+├── .gitignore
+├── .postcssrc.json
+├── .prettierrc
+├── angular.json
+├── bun.lock
+├── package.json
+├── tsconfig.app.json
+├── tsconfig.json
+└── tsconfig.spec.json
+```
 
 ## Tech Stack
 
 - **Frontend Framework:** Angular
 - **Language:** TypeScript
-- **Styling:** CSS / Tailwind CSS (as applicable)
+- **Styling:** CSS / Tailwind CSS
 - **Architecture:** Component-based modular structure
+- **package manager:** bun
 
 ## Setup Instructions
 
@@ -97,7 +100,18 @@ The Ajentica Team Management Web Application is built with **Angular**, **TypeSc
   bun install
   ```
 
-## Run Instuctions
+## Build Run Instuctions
+
+- Run build command for dev:
+  ```
+  bun run build
+  ```
+- Run build command for production:
+
+  ```
+  bun run build:prod
+
+  ```
 
 - Start the development server:
   ```
