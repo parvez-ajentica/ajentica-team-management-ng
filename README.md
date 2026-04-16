@@ -76,7 +76,7 @@ The Ajentica Team Management Web Application is built with **Angular**, **TypeSc
 
 - **Frontend Framework:** Angular
 - **Language:** TypeScript
-- **Styling:** CSS / Tailwind CSS (as applicable)
+- **Styling:** CSS / Tailwind CSS
 - **Architecture:** Component-based modular structure
 - **package manager:** bun
 
