@@ -7,7 +7,11 @@
     "build:prod": "ng build --configuration production",
     "watch": "ng build --watch",
     "preview:ssr": "node dist/ajentica-team-management-frontend/server/server.mjs",
-    "test": "ng test"
+    "test": "ng test",
+    "g:c": "ng generate component",
+    "g:s": "ng generate service",
+    "g:p": "ng generate pipe",
+    "g:d": "ng generate directive"
   },
   "private": true,
   "packageManager": "bun@1.3.7",
