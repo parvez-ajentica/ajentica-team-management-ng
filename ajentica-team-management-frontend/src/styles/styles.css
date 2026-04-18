@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import 'tailwindcss';
+@tailwind utilities;
+
+:root {
+  /* custom theme color set */
+  /* link and primary button color (decoration) */
+  --color-primary: oklch(62.3% 0.214 259.815);
+  --color-primaryDark: oklch(54.6% 0.245 262.881);
+  --color-secondary: oklch(44.6% 0.043 257.281);
+  --color-accent: oklch(78.9% 0.154 211.53);
+  /* declarative color */
+  --color-info: oklch(80.9% 0.105 251.813);
+  --color-success: oklch(84.5% 0.143 164.978);
+  --color-danger: oklch(81% 0.117 11.638);
+  /* neutral color */
+  --color-light: oklch(98.4% 0.003 247.858);
+  --color-mid: oklch(86.9% 0.022 252.894);
+  --color-dark: oklch(12.9% 0.042 264.695);
+}
+
+* {
+  @apply box-border;
+}
+
+html,
+body {
+  @apply h-full;
+}
+
+body {
+  @apply bg-gray-100 text-gray-800 font-sans;
+}
+
+/* Typography */
+h1 {
+  @apply text-3xl font-bold m-2 p-2;
+}
+
+h2 {
+  @apply text-2xl font-semibold m-2 p-2;
+}
+
+h3 {
+  @apply text-xl font-medium m-2 p-2;
+}
+
+/* Links */
+a {
+  @apply transition-colors duration-200 text-gray-700 hover:rounded-lg hover:bg-gray-200 cursor-pointer p-2;
+}
+
+a.active {
+  color: var(--color-primary);
+}
