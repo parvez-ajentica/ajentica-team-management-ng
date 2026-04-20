@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { Card } from '../../shared/card/card';
 
 @Component({
   selector: 'app-projects',
-  imports: [],
+  imports: [Card],
   templateUrl: './projects.html',
   styleUrl: './projects.css',
 })
-export class Projects {}
+export class Projects {
+  pageName: string = 'Projects';
+}
