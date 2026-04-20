@@ -3,7 +3,7 @@
 <!-- Stats -->
 <div class="stat-container">
   @for (item of dashboardData(); track item.title) {
-    <app-card className="card-body">
+    <app-card>
       <!-- Reset h3 spacing -->
       <h3 class="heading-reset">
         {{ item.title }}
@@ -18,7 +18,7 @@
 
 <!-- Widgets -->
 <div class="widget-container">
-  <app-card className="card-body">
+  <app-card>
     <h3 class="heading-reset">Upcoming Deadlines</h3>
     <ul>
       <li>Project Apollo — Dec 25, 2025</li>
@@ -26,12 +26,12 @@
     </ul>
   </app-card>
 
-  <app-card className="card-body">
+  <app-card>
     <h3 class="heading-reset">Recent Activity</h3>
     <p class="card-text-sm">Alice added a new task to Project Apollo.</p>
   </app-card>
 
-  <app-card className="card-body">
+  <app-card>
     <h3 class="heading-reset">Team Load</h3>
     <p class="card-text-sm">Dev Team — 75% capacity</p>
   </app-card>

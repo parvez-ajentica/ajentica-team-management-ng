@@ -6,6 +6,4 @@ import { Component, input } from '@angular/core';
   templateUrl: './card.html',
   styleUrl: './card.css',
 })
-export class Card {
-  className = input<string>('');
-}
+export class Card {}
