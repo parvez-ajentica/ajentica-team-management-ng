@@ -9,6 +9,10 @@ import { Location } from '@angular/common';
   styleUrl: './not-found.css',
 })
 export class NotFound {
+  errorCode: string = '404';
+  errorTitle: string = 'Page Not Found';
+  errorMessage: string = 'The page you are looking for does not exist or has been moved.';
+
   constructor(private location: Location) {}
 
   goBack() {
