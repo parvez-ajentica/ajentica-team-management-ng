@@ -7,4 +7,6 @@ import { Card } from '../../shared/card/card';
   templateUrl: './teams.html',
   styleUrl: './teams.css',
 })
-export class Teams {}
+export class Teams {
+  pageName: string = 'Teams';
+}
