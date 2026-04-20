@@ -1,15 +1,15 @@
 <h1 class="mb-6">Dashboard</h1>
 
 <!-- Stats -->
-<div class="grid mx-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<div class="stat-container">
   @for (item of dashboardData(); track item.title) {
-    <app-card className="rounded-2xl shadow-md p-6 flex flex-col justify-between">
+    <app-card className="card-body">
       <!-- Reset h3 spacing -->
-      <h3 class="heading-reset text-gray-600">
+      <h3 class="heading-reset">
         {{ item.title }}
       </h3>
 
-      <p class="text-3xl font-bold mt-2">
+      <p class="card-text-3xl">
         {{ item.value }}
       </p>
     </app-card>
@@ -17,22 +17,22 @@
 </div>
 
 <!-- Widgets -->
-<div class="mt-10 mx-6 grid grid-cols-1 lg:grid-cols-3 gap-6">
-  <app-card className="rounded-2xl shadow-md h-full p-6">
-    <h3 class="heading-reset mb-3">Upcoming Deadlines</h3>
-    <ul class="text-sm text-gray-600 space-y-1">
+<div class="widget-container">
+  <app-card className="card-body">
+    <h3 class="heading-reset">Upcoming Deadlines</h3>
+    <ul>
       <li>Project Apollo — Dec 25, 2025</li>
       <li>Website Redesign — Jan 10, 2026</li>
     </ul>
   </app-card>
 
-  <app-card className="rounded-2xl shadow-md h-full p-6">
-    <h3 class="heading-reset mb-3">Recent Activity</h3>
-    <p class="text-sm text-gray-600">Alice added a new task to Project Apollo.</p>
+  <app-card className="card-body">
+    <h3 class="heading-reset">Recent Activity</h3>
+    <p class="card-text-sm">Alice added a new task to Project Apollo.</p>
   </app-card>
 
-  <app-card className="rounded-2xl shadow-md h-full p-6">
-    <h3 class="heading-reset mb-3">Team Load</h3>
-    <p class="text-sm text-gray-600">Dev Team — 75% capacity</p>
+  <app-card className="card-body">
+    <h3 class="heading-reset">Team Load</h3>
+    <p class="card-text-sm">Dev Team — 75% capacity</p>
   </app-card>
 </div>

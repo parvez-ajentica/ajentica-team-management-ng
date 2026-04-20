@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+@tailwind utilities;
+
+.sidebar-container {
+  @apply bg-white shadow-lg p-6 h-full;
+}
+
+nav {
+  @apply flex flex-col gap-2 text-lg m-2;
+}

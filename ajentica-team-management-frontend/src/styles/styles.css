@@ -38,6 +38,10 @@ h1 {
   @apply text-3xl font-bold mx-4 p-2;
 }
 
+ul {
+  @apply text-sm text-gray-600 space-y-1 mt-4;
+}
+
 h2 {
   @apply text-2xl font-semibold m-2 p-2;
 }
@@ -49,6 +53,27 @@ h3 {
 .heading-reset {
   @apply m-0 p-0;
 }
+
+.card {
+  @apply bg-white border border-gray-200 shadow-sm;
+}
+
+.card-body {
+  @apply rounded-2xl shadow-md p-6 h-full;
+}
+
+.card-stat {
+  @apply flex flex-col justify-between;
+}
+
+.card-text-3xl {
+  @apply text-3xl font-bold mt-2;
+}
+
+.card-text-sm {
+  @apply text-sm text-gray-600 mt-3;
+}
+
 /* Links */
 a {
   @apply transition-colors duration-200 text-gray-700 hover:rounded-lg hover:bg-gray-200 cursor-pointer p-2;
