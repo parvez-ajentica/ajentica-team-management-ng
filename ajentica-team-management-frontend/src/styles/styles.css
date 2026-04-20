@@ -54,26 +54,6 @@ h3 {
   @apply m-0 p-0;
 }
 
-.card {
-  @apply bg-white border border-gray-200 rounded-2xl shadow-md p-6 h-full;
-}
-
-.card-body {
-  @apply rounded-2xl shadow-md p-6 h-full;
-}
-
-.card-stat {
-  @apply flex flex-col justify-between;
-}
-
-.card-text-3xl {
-  @apply text-3xl font-bold mt-2;
-}
-
-.card-text-sm {
-  @apply text-sm text-gray-600 mt-3;
-}
-
 /* Links */
 a {
   @apply transition-colors duration-200 text-gray-700 hover:rounded-lg hover:bg-gray-200 cursor-pointer p-2;
