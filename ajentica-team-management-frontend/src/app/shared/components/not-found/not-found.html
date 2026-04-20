@@ -1,1 +1,15 @@
-<p>not-found works!</p>
+<div class="error-page-container">
+  <div class="text-center max-w-md">
+    <h1 class="header-reset">404</h1>
+
+    <h2 class="header-reset">Page Not Found</h2>
+
+    <p>The page you are looking for doesn’t exist or has been moved.</p>
+
+    <div class="btn-container">
+      <a routerLink="dashboard" class="btn-back-to-dashboard"> Go to Dashboard </a>
+
+      <button (click)="goBack()" class="btn-go-back">Go Back</button>
+    </div>
+  </div>
+</div>
