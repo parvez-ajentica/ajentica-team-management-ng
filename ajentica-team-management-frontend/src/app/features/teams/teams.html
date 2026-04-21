@@ -12,7 +12,9 @@
           <button [routerLink]="['edit']" class="btn-icon">
             <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
           </button>
-          <button class="btn-icon"><svg lucideTrash [size]="20" [strokeWidth]="1"></svg></button>
+          <button (click)="openModal('Team Alpha')" class="btn-icon">
+            <svg lucideTrash [size]="20" [strokeWidth]="1"></svg>
+          </button>
         </div>
       </div>
       <p>Team lead: John Doe</p>
@@ -22,3 +24,10 @@
     </app-card>
   </div>
 </section>
+
+<app-confirm-modal
+  [isOpen]="isModalOpen()"
+  [itemName]="selectedName()"
+  (confirm)="handleConfirm()"
+  (cancel)="closeModal()"
+></app-confirm-modal>
