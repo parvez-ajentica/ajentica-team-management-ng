@@ -1,7 +1,19 @@
 <h1 class="mb-6">{{ pageName }}</h1>
 
-<div>
+<div class="teams-container">
   <app-card>
-    <p>this is the layout for card</p>
+    <div class="card-header">
+      <h3>Team Name</h3>
+      <div class="flex gap-2">
+        <button>Edit</button>
+        <button>Delete</button>
+      </div>
+    </div>
+    <p>Team lead: John Doe</p>
+    <p>Members: Alice, Bob, Charlie</p>
+    <p>Projects: Project Apollo, Website Redesign</p>
+    <button class="text-center w-full m-2 px-4 py-2 border rounded-xl border-gray-400">
+      View Details
+    </button>
   </app-card>
 </div>
