@@ -1,5 +1,5 @@
 @import 'tailwindcss';
 
 .btn-go-back {
-  @apply border border-gray-300 px-4 py-1 rounded-lg bg-white hover:bg-gray-100 hover:-translate-x-1 transition;
+  @apply border border-gray-300 mx-6 px-4 py-1 rounded-lg bg-white hover:bg-gray-100 hover:-translate-x-1 transition;
 }
