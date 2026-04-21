@@ -47,7 +47,7 @@ h2 {
 }
 
 h3 {
-  @apply text-xl font-medium m-2 p-2;
+  @apply text-xl font-medium;
 }
 
 .heading-reset {
