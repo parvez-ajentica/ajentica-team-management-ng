@@ -1,7 +1,19 @@
 @import 'tailwindcss';
 
-.input {
-  @apply w-full px-3 py-2 shadow-lg border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition overflow-y-auto;
+.form-container {
+  @apply space-y-4 my-4 p-4 w-3/4 mx-auto;
+}
+
+.form-input {
+  @apply w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition overflow-y-auto;
+}
+
+.option-container {
+  @apply flex flex-col gap-1;
+}
+
+.selection {
+  @apply w-1/2 h-full mb-8;
 }
 
 label {

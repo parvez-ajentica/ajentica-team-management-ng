@@ -1,12 +1,12 @@
-<form class="space-y-4 my-4 p-4 w-full" (submit)="submit(); $event.preventDefault()">
-  <div class="">
+<form class="form-container" (submit)="submit(); $event.preventDefault()">
+  <div class="option-container">
     <label for="">Team name</label>
-    <input type="text" name="" id="" class="input" />
+    <input type="text" name="" id="" class="input form-input" />
   </div>
 
-  <div>
+  <div class="option-container">
     <label>Lead</label>
-    <select [value]="lead()" (change)="setLead($any($event.target).value)" class="input">
+    <select [value]="lead()" (change)="setLead($any($event.target).value)" class="input form-input">
       <option value="">Select Lead</option>
       @for (l of leads(); track l.id) {
         <option [value]="l.id">{{ l.name }}</option>
@@ -15,7 +15,7 @@
   </div>
 
   <div class="flex gap-4 w-full h-40">
-    <div class="w-1/2 h-full">
+    <div class="selection option-container">
       <label class="label">Projects</label>
       <app-multi-select
         [options]="projectList()"
@@ -24,7 +24,7 @@
       ></app-multi-select>
     </div>
 
-    <div class="w-1/2 h-full mb-8">
+    <div class="selection option-container">
       <label class="label">Members</label>
       <app-multi-select
         [options]="memberList()"
