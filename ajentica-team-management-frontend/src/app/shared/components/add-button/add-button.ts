@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { LucideCirclePlus, LucideTrash } from '@lucide/angular';
 
 @Component({
@@ -7,4 +7,6 @@ import { LucideCirclePlus, LucideTrash } from '@lucide/angular';
   templateUrl: './add-button.html',
   styleUrl: './add-button.css',
 })
-export class AddButton {}
+export class AddButton {
+  label = input<string>('');
+}
