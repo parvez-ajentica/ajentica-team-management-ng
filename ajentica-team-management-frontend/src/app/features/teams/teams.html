@@ -1,19 +1,22 @@
-<h1 class="mb-6">{{ pageName }}</h1>
-
+<div class="flex items-center justify-between mb-6">
+  <h1 class="mb-6">{{ pageName }}</h1>
+  <app-add-button label="Team"></app-add-button>
+</div>
 <div class="teams-container">
   <app-card>
     <div class="card-header">
       <h3>Team Name</h3>
+
       <div class="flex gap-2">
-        <button>Edit</button>
-        <button>Delete</button>
+        <button class="btn-icon">
+          <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
+        </button>
+        <button class="btn-icon"><svg lucideTrash [size]="20" [strokeWidth]="1"></svg></button>
       </div>
     </div>
     <p>Team lead: John Doe</p>
     <p>Members: Alice, Bob, Charlie</p>
     <p>Projects: Project Apollo, Website Redesign</p>
-    <button class="text-center w-full m-2 px-4 py-2 border rounded-xl border-gray-400">
-      View Details
-    </button>
+    <button class="btn-details">View Details</button>
   </app-card>
 </div>
