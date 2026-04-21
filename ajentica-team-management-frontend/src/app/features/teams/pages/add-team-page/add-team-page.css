@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-.page-name {
+.add-page-name {
   @apply text-center;
 }
 

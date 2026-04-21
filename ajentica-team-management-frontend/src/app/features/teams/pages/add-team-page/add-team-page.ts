@@ -8,4 +8,6 @@ import { BackButton } from '../../../../shared/components/back-button/back-butto
   templateUrl: './add-team-page.html',
   styleUrl: './add-team-page.css',
 })
-export class AddTeamPage {}
+export class AddTeamPage {
+  pageName: string = 'Add New Team';
+}

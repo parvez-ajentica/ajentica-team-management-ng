@@ -1,0 +1,35 @@
+<div>
+  <app-back-button></app-back-button>
+  <div class="head-container">
+    <h1 class="page-name">{{ pageName }}</h1>
+    <app-edit-button></app-edit-button>
+  </div>
+  <section>
+    <app-card>
+      <h2>Team Lead</h2>
+      <app-profile-info></app-profile-info>
+    </app-card>
+  </section>
+  <section>
+    <h2>Team Members</h2>
+    <div class="card-container">
+      <app-card>
+        <app-profile-info></app-profile-info>
+        <app-view-details-button></app-view-details-button>
+      </app-card>
+    </div>
+  </section>
+  <section>
+    <h2>Assigned Projects</h2>
+    <div class="card-container">
+      <app-card>
+        <div>
+          <h3>Project Apollo</h3>
+          <p>Deadline: 12/31/2026</p>
+          <p>Deadline status</p>
+        </div>
+        <app-view-details-button></app-view-details-button>
+      </app-card>
+    </div>
+  </section>
+</div>

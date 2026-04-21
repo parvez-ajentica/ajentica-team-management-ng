@@ -5,7 +5,7 @@
   @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
 }
 .head-container {
-  @apply flex items-center justify-between mb-6;
+  @apply flex items-center justify-between;
 }
 .team-name {
   @apply mb-6;
@@ -16,8 +16,4 @@
 
 .btn-icon {
   @apply bg-gray-100 p-2 cursor-pointer rounded-lg hover:bg-gray-200 transition-colors duration-200;
-}
-
-.btn-details {
-  @apply text-center text-gray-900 font-semibold text-sm w-full m-2 px-4 py-2 border rounded-xl border-gray-400 hover:bg-gray-100 cursor-pointer transition-colors duration-200;
 }
