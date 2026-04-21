@@ -1,0 +1,23 @@
+@import 'tailwindcss';
+
+@layer components {
+  .multi-select {
+    @apply relative w-full;
+  }
+}
+
+.option-selector {
+  @apply border border-gray-300 shadow-lg rounded-lg px-3 py-2 flex flex-wrap gap-2 cursor-pointer min-h-12;
+}
+
+.options {
+  @apply bg-white text-blue-700 px-2 py-1 rounded-lg flex items-center gap-1;
+}
+
+.dropdown-container {
+  @apply absolute w-full mt-1 border border-gray-300 rounded-lg bg-white shadow-lg max-h-48 overflow-auto z-10;
+}
+
+.dropdown-option {
+  @apply px-3 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer;
+}
