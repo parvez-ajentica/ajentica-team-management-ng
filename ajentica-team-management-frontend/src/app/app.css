@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+.main-container {
+  @apply flex h-screen;
+}
+
+.right-container {
+  @apply w-5/6 mx-12;
+}
+
+.sidebar {
+  @apply lg:w-1/6;
+}

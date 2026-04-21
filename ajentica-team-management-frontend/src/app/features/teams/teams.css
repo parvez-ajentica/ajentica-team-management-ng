@@ -2,9 +2,14 @@
 @tailwind utilities;
 
 .teams-container {
-  @apply grid mx-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
 }
-
+.head-container {
+  @apply flex items-center justify-between mb-6;
+}
+.team-name {
+  @apply mb-6;
+}
 .card-header {
   @apply flex justify-between items-center mb-4;
 }

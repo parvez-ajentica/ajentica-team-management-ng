@@ -1,6 +1,6 @@
-<div class="flex items-center justify-between mb-6">
-  <h1 class="mb-6">{{ pageName }}</h1>
-  <app-add-button label="Team"></app-add-button>
+<div class="head-container">
+  <h1 class="team-name">{{ pageName }}</h1>
+  <app-add-button [routerLink]="['add']" label="Team"></app-add-button>
 </div>
 <div class="teams-container">
   <app-card>
@@ -8,7 +8,7 @@
       <h3>Team Name</h3>
 
       <div class="flex gap-2">
-        <button class="btn-icon">
+        <button [routerLink]="['edit']" class="btn-icon">
           <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
         </button>
         <button class="btn-icon"><svg lucideTrash [size]="20" [strokeWidth]="1"></svg></button>

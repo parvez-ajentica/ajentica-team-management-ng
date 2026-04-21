@@ -35,7 +35,7 @@ body {
 
 /* Typography */
 h1 {
-  @apply text-3xl font-bold mx-4 p-2;
+  @apply text-3xl font-bold mt-4;
 }
 
 ul {
@@ -58,6 +58,10 @@ h3 {
   @apply bg-(--color-primary) gap-2 items-center text-white font-semibold text-sm mx-6 my-2 px-4 py-2 rounded-xl hover:bg-(--color-primaryDark) cursor-pointer transition-colors duration-200;
 }
 
+.btn-submit {
+  @apply px-4 py-2 bg-(--color-primary) text-white font-semibold text-sm my-2  rounded-xl hover:bg-(--color-primaryDark) cursor-pointer transition-colors duration-200;
+}
+
 /* Links */
 a {
   @apply transition-colors duration-200 text-gray-700 hover:rounded-lg hover:bg-gray-200 cursor-pointer p-2;
@@ -65,4 +69,8 @@ a {
 
 a.active {
   color: var(--color-primary);
+}
+
+.input {
+  @apply rounded-lg px-4 py-2 w-64 bg-white shadow;
 }

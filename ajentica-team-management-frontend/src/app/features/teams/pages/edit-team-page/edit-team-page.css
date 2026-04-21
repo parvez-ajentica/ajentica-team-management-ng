@@ -1,0 +1,9 @@
+@import 'tailwindcss';
+
+.page-name {
+  @apply text-center;
+}
+
+.page-container {
+  @apply w-3/5 mx-auto;
+}
