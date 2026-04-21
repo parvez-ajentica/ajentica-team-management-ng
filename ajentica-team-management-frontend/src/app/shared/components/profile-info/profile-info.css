@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+.profile-container {
+  @apply flex gap-4 p-4;
+}

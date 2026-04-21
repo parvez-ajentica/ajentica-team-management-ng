@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { LucideBell } from '@lucide/angular';
-import { ImagePlaceholder } from '../../shared/components/image-placeholder/image-placeholder';
 
 @Component({
   selector: 'app-header',
-  imports: [LucideBell, ImagePlaceholder],
+  imports: [LucideBell],
   templateUrl: './header.html',
   styleUrl: './header.css',
 })

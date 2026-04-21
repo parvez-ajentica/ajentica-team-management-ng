@@ -53,6 +53,9 @@ h3 {
 h4 {
   @apply text-lg font-medium;
 }
+section {
+  @apply my-6;
+}
 
 .heading-reset {
   @apply m-0 p-0;
@@ -79,6 +82,6 @@ a.active {
   @apply rounded-lg px-4 py-2 w-64 bg-white shadow;
 }
 
-.page-name {
-  @apply mb-6;
+.card-container {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 mt-6 gap-6;
 }

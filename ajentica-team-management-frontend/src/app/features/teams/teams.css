@@ -5,7 +5,7 @@
   @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6;
 }
 .head-container {
-  @apply flex items-center justify-between mb-6;
+  @apply flex items-center justify-between;
 }
 .team-name {
   @apply mb-6;

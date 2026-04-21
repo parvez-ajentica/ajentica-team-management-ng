@@ -1,22 +1,24 @@
 <div class="head-container">
-  <h1 class="team-name">{{ pageName }}</h1>
+  <h1 class="">{{ pageName }}</h1>
   <app-add-button [routerLink]="['add']" label="Team"></app-add-button>
 </div>
-<div class="teams-container">
-  <app-card>
-    <div class="card-header">
-      <h3>Team Name</h3>
+<section>
+  <div class="card-container">
+    <app-card>
+      <div class="card-header">
+        <h3>Team Name</h3>
 
-      <div class="flex gap-2">
-        <button [routerLink]="['edit']" class="btn-icon">
-          <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
-        </button>
-        <button class="btn-icon"><svg lucideTrash [size]="20" [strokeWidth]="1"></svg></button>
+        <div class="flex gap-2">
+          <button [routerLink]="['edit']" class="btn-icon">
+            <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
+          </button>
+          <button class="btn-icon"><svg lucideTrash [size]="20" [strokeWidth]="1"></svg></button>
+        </div>
       </div>
-    </div>
-    <p>Team lead: John Doe</p>
-    <p>Members: Alice, Bob, Charlie</p>
-    <p>Projects: Project Apollo, Website Redesign</p>
-    <app-view-details-button [routerLink]="['view-details']"></app-view-details-button>
-  </app-card>
-</div>
+      <p>Team lead: John Doe</p>
+      <p>Members: Alice, Bob, Charlie</p>
+      <p>Projects: Project Apollo, Website Redesign</p>
+      <app-view-details-button [routerLink]="['view-details']"></app-view-details-button>
+    </app-card>
+  </div>
+</section>

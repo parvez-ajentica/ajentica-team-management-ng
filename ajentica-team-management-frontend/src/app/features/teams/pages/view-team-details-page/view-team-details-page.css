@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
 .head-container {
-  @apply flex items-center justify-between mb-6;
+  @apply flex items-center justify-between;
+}
+
+section {
+  @apply my-6;
 }

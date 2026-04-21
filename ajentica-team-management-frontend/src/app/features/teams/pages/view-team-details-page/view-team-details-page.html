@@ -4,16 +4,19 @@
     <h1 class="page-name">{{ pageName }}</h1>
     <app-edit-button></app-edit-button>
   </div>
-  <div>
+  <section>
     <app-card>
       <h2>Team Lead</h2>
-      <div class="flex gap-4 p-4">
-        <app-image-placeholder class="my-auto"></app-image-placeholder>
-        <div class="my-auto">
-          <h4>John Doe</h4>
-          <p>Seniore Frontend Engineer</p>
-        </div>
-      </div>
+      <app-profile-info></app-profile-info>
     </app-card>
-  </div>
+  </section>
+  <section>
+    <h2>Team Members</h2>
+    <div class="card-container">
+      <app-card>
+        <app-profile-info></app-profile-info>
+        <app-view-details-button></app-view-details-button>
+      </app-card>
+    </div>
+  </section>
 </div>
