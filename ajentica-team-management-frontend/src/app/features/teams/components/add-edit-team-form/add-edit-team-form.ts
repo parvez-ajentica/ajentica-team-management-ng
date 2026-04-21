@@ -1,8 +1,9 @@
 import { Component, signal, computed } from '@angular/core';
+import { MultiSelect } from '../../../../shared/components/multi-select/multi-select';
 
 @Component({
   selector: 'app-add-edit-team-form',
-  imports: [],
+  imports: [MultiSelect],
   templateUrl: './add-edit-team-form.html',
   styleUrl: './add-edit-team-form.css',
 })
@@ -46,18 +47,6 @@ export class AddEditTeamForm {
 
   setLead(value: string) {
     this.lead.set(value ? Number(value) : null);
-  }
-
-  setProjectsFromSelect(event: Event) {
-    const select = event.target as HTMLSelectElement;
-    const values = Array.from(select.selectedOptions).map((opt) => Number(opt.value));
-    this.projects.set(values);
-  }
-
-  setMembersFromSelect(event: Event) {
-    const select = event.target as HTMLSelectElement;
-    const values = Array.from(select.selectedOptions).map((opt) => Number(opt.value));
-    this.members.set(values);
   }
 
   submit() {

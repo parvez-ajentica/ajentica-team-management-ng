@@ -17,24 +17,20 @@
   <div class="flex gap-4 w-full h-40">
     <div class="w-1/2 h-full">
       <label class="label">Projects</label>
-      <select multiple class="input h-8/9" (change)="setProjectsFromSelect($event)">
-        @for (p of projectList(); track p.id) {
-          <option [value]="p.id" [selected]="projects().includes(p.id)">
-            {{ p.name }}
-          </option>
-        }
-      </select>
+      <app-multi-select
+        [options]="projectList()"
+        [selected]="projects()"
+        (selectedChange)="projects.set($event)"
+      ></app-multi-select>
     </div>
 
     <div class="w-1/2 h-full mb-8">
       <label class="label">Members</label>
-      <select multiple class="input h-8/9" (change)="setMembersFromSelect($event)">
-        @for (m of memberList(); track m.id) {
-          <option [value]="m.id" [selected]="members().includes(m.id)">
-            {{ m.name }}
-          </option>
-        }
-      </select>
+      <app-multi-select
+        [options]="memberList()"
+        [selected]="members()"
+        (selectedChange)="members.set($event)"
+      ></app-multi-select>
     </div>
   </div>
 

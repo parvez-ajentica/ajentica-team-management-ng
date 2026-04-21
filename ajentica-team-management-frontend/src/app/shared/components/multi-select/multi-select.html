@@ -1,0 +1,35 @@
+<div class="multi-select relative w-full">
+  <!-- Selected Chips -->
+  <div
+    class="border rounded-lg px-3 py-2 flex flex-wrap gap-2 cursor-pointer min-h-12"
+    (click)="toggleDropdown()"
+  >
+    @if (selected().length === 0) {
+      <span class="text-gray-400">Select options...</span>
+    }
+
+    @for (item of options(); track item.id) {
+      @if (selected().includes(item.id)) {
+        <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded flex items-center gap-1">
+          {{ item.name }}
+          <button type="button" (click)="removeItem(item.id); $event.stopPropagation()">✕</button>
+        </span>
+      }
+    }
+  </div>
+
+  <!-- Dropdown -->
+  @if (isOpen()) {
+    <div class="absolute w-full mt-1 border rounded-lg bg-white shadow max-h-48 overflow-auto z-10">
+      @for (item of options(); track item.id) {
+        <div
+          class="px-3 py-2 hover:bg-gray-100 flex items-center gap-2 cursor-pointer"
+          (click)="toggleOption(item.id)"
+        >
+          <input type="checkbox" [checked]="selected().includes(item.id)" />
+          {{ item.name }}
+        </div>
+      }
+    </div>
+  }
+</div>
