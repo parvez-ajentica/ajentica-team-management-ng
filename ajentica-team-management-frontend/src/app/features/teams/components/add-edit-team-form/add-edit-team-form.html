@@ -1,4 +1,4 @@
-<form class="space-y-4 my-4 p-4" (ngSubmit)="submit()" action="">
+<form class="space-y-4 my-4 p-4 w-full" (submit)="submit(); $event.preventDefault()">
   <div class="">
     <label for="">Team name</label>
     <input type="text" name="" id="" class="input" />
@@ -38,5 +38,7 @@
     </div>
   </div>
 
-  <button class="btn-submit" type="submit">Submit</button>
+  <div class="text-center">
+    <button class="btn-submit" type="submit">Submit</button>
+  </div>
 </form>

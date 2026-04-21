@@ -27,11 +27,11 @@ export class AddEditTeamForm {
     { id: 1, name: 'Dev 1' },
     { id: 2, name: 'Dev 2' },
     { id: 3, name: 'Dev 3' },
+    { id: 4, name: 'Dev 3' },
+    { id: 5, name: 'Dev 3' },
+    { id: 6, name: 'Dev 3' },
+    { id: 7, name: 'Dev 3' },
   ]);
-
-  // ======================
-  // DERIVED STATE (OPTIONAL)
-  // ======================
 
   formValue = computed(() => ({
     teamName: this.teamName(),
@@ -61,6 +61,7 @@ export class AddEditTeamForm {
   }
 
   submit() {
+    console.log('submit button clicked');
     console.log('Final Form:', this.formValue());
   }
 }
