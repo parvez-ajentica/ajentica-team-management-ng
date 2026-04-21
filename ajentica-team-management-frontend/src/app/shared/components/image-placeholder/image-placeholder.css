@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+.profile-image-container {
+  @apply w-16 h-16 bg-gray-300 rounded-full;
+}

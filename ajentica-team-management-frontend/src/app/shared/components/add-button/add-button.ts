@@ -1,5 +1,5 @@
 import { Component, input } from '@angular/core';
-import { LucideCirclePlus, LucideTrash } from '@lucide/angular';
+import { LucideCirclePlus } from '@lucide/angular';
 
 @Component({
   selector: 'app-add-button',

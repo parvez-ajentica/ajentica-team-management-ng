@@ -8,4 +8,6 @@ import { AddEditTeamForm } from '../../components/add-edit-team-form/add-edit-te
   templateUrl: './edit-team-page.html',
   styleUrl: './edit-team-page.css',
 })
-export class EditTeamPage {}
+export class EditTeamPage {
+  pageName: string = 'Upadte Team Info';
+}
