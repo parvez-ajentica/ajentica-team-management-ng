@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Card } from '../../shared/card/card';
-import { LucideSquarePen, LucideTrash } from '@lucide/angular';
+import { LucideCirclePlus, LucideSquarePen, LucideTrash } from '@lucide/angular';
 
 @Component({
   selector: 'app-teams',
-  imports: [Card, LucideSquarePen, LucideTrash],
+  imports: [Card, LucideSquarePen, LucideTrash, LucideCirclePlus],
   templateUrl: './teams.html',
   styleUrl: './teams.css',
 })
