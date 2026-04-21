@@ -12,3 +12,7 @@
 .btn-icon {
   @apply bg-gray-100 p-2 cursor-pointer rounded-lg hover:bg-gray-200 transition-colors duration-200;
 }
+
+.btn-details {
+  @apply text-center text-gray-900 font-semibold text-sm w-full m-2 px-4 py-2 border rounded-xl border-gray-400 hover:bg-gray-100 cursor-pointer transition-colors duration-200;
+}
