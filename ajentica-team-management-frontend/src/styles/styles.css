@@ -35,7 +35,7 @@ body {
 
 /* Typography */
 h1 {
-  @apply text-3xl font-bold mx-4 p-2;
+  @apply text-3xl font-bold mt-4;
 }
 
 ul {
