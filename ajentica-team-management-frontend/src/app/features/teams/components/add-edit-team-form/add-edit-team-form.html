@@ -1,1 +1,42 @@
-<p>add-edit-team-form works!</p>
+<form class="space-y-4 my-4 p-4" (ngSubmit)="submit()" action="">
+  <div class="">
+    <label for="">Team name</label>
+    <input type="text" name="" id="" class="input" />
+  </div>
+
+  <div>
+    <label>Lead</label>
+    <select [value]="lead()" (change)="setLead($any($event.target).value)" class="input">
+      <option value="">Select Lead</option>
+      @for (l of leads(); track l.id) {
+        <option [value]="l.id">{{ l.name }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="flex gap-4 w-full h-40">
+    <div class="w-1/2 h-full">
+      <label class="label">Projects</label>
+      <select multiple class="input h-8/9" (change)="setProjectsFromSelect($event)">
+        @for (p of projectList(); track p.id) {
+          <option [value]="p.id" [selected]="projects().includes(p.id)">
+            {{ p.name }}
+          </option>
+        }
+      </select>
+    </div>
+
+    <div class="w-1/2 h-full mb-8">
+      <label class="label">Members</label>
+      <select multiple class="input h-8/9" (change)="setMembersFromSelect($event)">
+        @for (m of memberList(); track m.id) {
+          <option [value]="m.id" [selected]="members().includes(m.id)">
+            {{ m.name }}
+          </option>
+        }
+      </select>
+    </div>
+  </div>
+
+  <button class="btn-submit" type="submit">Submit</button>
+</form>
