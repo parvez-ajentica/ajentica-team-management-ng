@@ -18,9 +18,9 @@
             </button>
           </div>
         </div>
-        <p>Team lead: {{ team.lead }}</p>
-        <p>Members: {{ team.members.join(',') }}</p>
-        <p>Projects: {{ team.projects.join(',') }}</p>
+        <p>Team lead: {{ team.lead.name }}</p>
+        <p>Members: {{ getMemberNames(team) }}</p>
+        <p>Projects: {{ getProjectNames(team) }}</p>
         <app-view-details-button [routerLink]="['view-details', team.id]"></app-view-details-button>
       </app-card>
     }

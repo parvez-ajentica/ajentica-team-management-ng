@@ -1,10 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, inject } from '@angular/core';
 import { Card } from '../../shared/card/card';
 import { LucideSquarePen, LucideTrash } from '@lucide/angular';
 import { AddButton } from '../../shared/components/add-button/add-button';
 import { RouterLink } from '@angular/router';
 import { ViewDetailsButton } from '../../shared/components/view-details-button/view-details-button';
 import { ConfirmModal } from '../../shared/components/confirm-modal/confirm-modal';
+import { TeamService } from '../../core/services/team.service';
 
 @Component({
   selector: 'app-teams',
@@ -24,22 +25,17 @@ import { ConfirmModal } from '../../shared/components/confirm-modal/confirm-moda
 export class Teams {
   pageName: string = 'Teams';
 
-  teams = signal([
-    {
-      id: 1,
-      name: 'Team Alpha',
-      lead: 'John Doe',
-      members: ['Alice', 'Bob'],
-      projects: ['Project Apollo'],
-    },
-    {
-      id: 2,
-      name: 'Team Beta',
-      lead: 'Jane Smith',
-      members: ['Charlie'],
-      projects: ['Website Redesign'],
-    },
-  ]);
+  private teamService = inject(TeamService);
+
+  teams = this.teamService.getAllTeams();
+
+  getMemberNames(team: any) {
+    return team.members.map((m: any) => m.name).join(', ');
+  }
+
+  getProjectNames(team: any) {
+    return team.projects.map((p: any) => p.name).join(', ');
+  }
 
   isModalOpen = signal(false);
   selectedName = signal('');
