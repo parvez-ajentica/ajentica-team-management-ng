@@ -24,6 +24,23 @@ import { ConfirmModal } from '../../shared/components/confirm-modal/confirm-moda
 export class Teams {
   pageName: string = 'Teams';
 
+  teams = signal([
+    {
+      id: 1,
+      name: 'Team Alpha',
+      lead: 'John Doe',
+      members: ['Alice', 'Bob'],
+      projects: ['Project Apollo'],
+    },
+    {
+      id: 2,
+      name: 'Team Beta',
+      lead: 'Jane Smith',
+      members: ['Charlie'],
+      projects: ['Website Redesign'],
+    },
+  ]);
+
   isModalOpen = signal(false);
   selectedName = signal('');
 

@@ -22,7 +22,7 @@ export const routes: Routes = [
       { path: '', component: Teams },
       { path: 'add', component: AddTeamPage },
       { path: 'edit', component: EditTeamPage },
-      { path: 'view-details', component: ViewTeamDetailsPage },
+      { path: 'view-details/:id', component: ViewTeamDetailsPage },
     ],
   },
   {
