@@ -5,7 +5,17 @@
     @for (member of members(); track member.id) {
       <app-card>
         <!-- Profile -->
-        <app-profile-info [user]="member"></app-profile-info>
+        <div class="flex justify-between">
+          <app-profile-info [user]="member"></app-profile-info>
+          <div class="flex gap-2">
+            <button [routerLink]="['edit']" class="btn-icon">
+              <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
+            </button>
+            <button (click)="openModal('Team Alpha')" class="btn-icon">
+              <svg lucideTrash [size]="20" [strokeWidth]="1"></svg>
+            </button>
+          </div>
+        </div>
 
         <!-- Teams -->
         <h4 class="title">Teams:</h4>
@@ -30,3 +40,10 @@
     }
   </div>
 </section>
+
+<app-confirm-modal
+  [isOpen]="isModalOpen()"
+  [itemName]="selectedName()"
+  (confirm)="handleConfirm()"
+  (cancel)="closeModal()"
+></app-confirm-modal>
