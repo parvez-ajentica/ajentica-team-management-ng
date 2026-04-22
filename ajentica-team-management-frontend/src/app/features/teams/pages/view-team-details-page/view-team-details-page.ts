@@ -4,12 +4,12 @@ import { EditButton } from '../../../../shared/components/edit-button/edit-butto
 import { Card } from '../../../../shared/card/card';
 import { ProfileInfo } from '../../../../shared/components/profile-info/profile-info';
 import { ViewDetailsButton } from '../../../../shared/components/view-details-button/view-details-button';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TeamService } from '../../../../core/services/team.service';
 
 @Component({
   selector: 'app-view-team-details-page',
-  imports: [BackButton, EditButton, Card, ProfileInfo, ViewDetailsButton],
+  imports: [BackButton, EditButton, Card, ProfileInfo, ViewDetailsButton, RouterLink],
   templateUrl: './view-team-details-page.html',
   styleUrl: './view-team-details-page.css',
 })

@@ -21,7 +21,7 @@ export const routes: Routes = [
     children: [
       { path: '', component: Teams },
       { path: 'add', component: AddTeamPage },
-      { path: 'edit', component: EditTeamPage },
+      { path: 'edit/:id', component: EditTeamPage },
       { path: 'view-details/:id', component: ViewTeamDetailsPage },
     ],
   },
