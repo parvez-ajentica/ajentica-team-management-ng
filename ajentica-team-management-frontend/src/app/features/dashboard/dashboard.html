@@ -1,38 +1,40 @@
-<h1 class="mb-6">Dashboard</h1>
+<h1 class="page-name">Dashboard</h1>
 
 <!-- Stats -->
-<div class="stat-container">
-  @for (item of dashboardData(); track item.title) {
+<section>
+  <div class="stat-container">
+    @for (item of dashboardData(); track item.title) {
+      <app-card>
+        <!-- Reset h3 spacing -->
+        <h3>
+          {{ item.title }}
+        </h3>
+
+        <p class="card-text-4xl">
+          {{ item.value }}
+        </p>
+      </app-card>
+    }
+  </div>
+
+  <!-- Widgets -->
+  <div class="widget-container">
     <app-card>
-      <!-- Reset h3 spacing -->
-      <h3 class="heading-reset">
-        {{ item.title }}
-      </h3>
-
-      <p class="card-text-3xl">
-        {{ item.value }}
-      </p>
+      <h3>Upcoming Deadlines</h3>
+      <ul>
+        <li>Project Apollo — Dec 25, 2025</li>
+        <li>Website Redesign — Jan 10, 2026</li>
+      </ul>
     </app-card>
-  }
-</div>
 
-<!-- Widgets -->
-<div class="widget-container">
-  <app-card>
-    <h3 class="heading-reset">Upcoming Deadlines</h3>
-    <ul>
-      <li>Project Apollo — Dec 25, 2025</li>
-      <li>Website Redesign — Jan 10, 2026</li>
-    </ul>
-  </app-card>
+    <app-card>
+      <h3>Recent Activity</h3>
+      <p class="card-text-sm">Alice added a new task to Project Apollo.</p>
+    </app-card>
 
-  <app-card>
-    <h3 class="heading-reset">Recent Activity</h3>
-    <p class="card-text-sm">Alice added a new task to Project Apollo.</p>
-  </app-card>
-
-  <app-card>
-    <h3 class="heading-reset">Team Load</h3>
-    <p class="card-text-sm">Dev Team — 75% capacity</p>
-  </app-card>
-</div>
+    <app-card>
+      <h3>Team Load</h3>
+      <p class="card-text-sm">Dev Team — 75% capacity</p>
+    </app-card>
+  </div>
+</section>

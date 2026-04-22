@@ -4,6 +4,10 @@ import { Teams } from './features/teams/teams';
 import { Members } from './features/members/members';
 import { Projects } from './features/projects/projects';
 import { NotFound } from './shared/components/not-found/not-found';
+import { AddTeamPage } from './features/teams/pages/add-team-page/add-team-page';
+import { EditTeamPage } from './features/teams/pages/edit-team-page/edit-team-page';
+import { TeamMainPage } from './features/teams/pages/team-main-page/team-main-page';
+import { ViewTeamDetailsPage } from './features/teams/pages/view-team-details-page/view-team-details-page';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -13,7 +17,13 @@ export const routes: Routes = [
   },
   {
     path: 'teams',
-    component: Teams,
+    component: TeamMainPage,
+    children: [
+      { path: '', component: Teams },
+      { path: 'add', component: AddTeamPage },
+      { path: 'edit/:id', component: EditTeamPage },
+      { path: 'view-details/:id', component: ViewTeamDetailsPage },
+    ],
   },
   {
     path: 'members',
@@ -23,6 +33,7 @@ export const routes: Routes = [
     path: 'projects',
     component: Projects,
   },
+
   {
     path: '**',
     component: NotFound,

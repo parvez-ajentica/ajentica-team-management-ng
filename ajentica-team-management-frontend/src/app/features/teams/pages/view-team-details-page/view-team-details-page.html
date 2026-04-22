@@ -1,0 +1,41 @@
+<div>
+  <app-back-button></app-back-button>
+  <div class="head-container">
+    <h1 class="page-name">{{ team()?.name }}</h1>
+    <app-edit-button [routerLink]="['/teams/edit', team()?.id]"></app-edit-button>
+  </div>
+  <section>
+    <div class="lead-container">
+      <app-card>
+        <h2>Team Lead</h2>
+        <app-profile-info [user]="team()?.lead"></app-profile-info>
+      </app-card>
+    </div>
+  </section>
+  <section>
+    <h2>Team Members</h2>
+    <div class="card-container">
+      @for (member of team()?.members; track member.id) {
+        <app-card>
+          <app-profile-info [user]="member"></app-profile-info>
+          <app-view-details-button></app-view-details-button>
+        </app-card>
+      }
+    </div>
+  </section>
+  <section>
+    <h2>Assigned Projects</h2>
+    <div class="card-container">
+      @for (project of team()?.projects; track project.id) {
+        <app-card>
+          <div>
+            <h3>{{ project.name }}</h3>
+            <p>Deadline: {{ project.deadline }}</p>
+            <p>Deadline status</p>
+          </div>
+          <app-view-details-button></app-view-details-button>
+        </app-card>
+      }
+    </div>
+  </section>
+</div>

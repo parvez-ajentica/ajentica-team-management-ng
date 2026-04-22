@@ -1,7 +1,35 @@
-<h1 class="mb-6">{{ pageName }}</h1>
-
-<div>
-  <app-card>
-    <p>this is the layout for card</p>
-  </app-card>
+<div class="head-container">
+  <h1 class="">{{ pageName }}</h1>
+  <app-add-button [routerLink]="['add']" label="Team"></app-add-button>
 </div>
+<section>
+  <div class="card-container">
+    @for (team of teams(); track team.id) {
+      <app-card>
+        <div class="card-header">
+          <h3>{{ team.name }}</h3>
+
+          <div class="flex gap-2">
+            <button [routerLink]="['edit', team.id]" class="btn-icon">
+              <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
+            </button>
+            <button (click)="openModal('Team Alpha')" class="btn-icon">
+              <svg lucideTrash [size]="20" [strokeWidth]="1"></svg>
+            </button>
+          </div>
+        </div>
+        <p>Team lead: {{ team.lead.name }}</p>
+        <p>Members: {{ getMemberNames(team) }}</p>
+        <p>Projects: {{ getProjectNames(team) }}</p>
+        <app-view-details-button [routerLink]="['view-details', team.id]"></app-view-details-button>
+      </app-card>
+    }
+  </div>
+</section>
+
+<app-confirm-modal
+  [isOpen]="isModalOpen()"
+  [itemName]="selectedName()"
+  (confirm)="handleConfirm()"
+  (cancel)="closeModal()"
+></app-confirm-modal>

@@ -12,7 +12,11 @@ p {
 }
 
 .error-page-container {
-  @apply flex items-center justify-center h-screen px-4;
+  @apply lg:fixed md:fixed md:inset-0 lg:inset-0 flex items-center justify-center px-4 pointer-events-none;
+}
+
+.error-body {
+  @apply text-center max-w-md w-full pointer-events-auto;
 }
 
 .btn-container {

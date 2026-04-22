@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+
+.head-container {
+  @apply flex items-center justify-between;
+}
+
+section {
+  @apply my-6;
+}
+
+.lead-container {
+  @apply w-1/3 pr-4;
+}

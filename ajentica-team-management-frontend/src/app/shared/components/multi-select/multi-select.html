@@ -1,0 +1,35 @@
+<div class="multi-select">
+  <!-- Selected Chips -->
+  <div class="option-selector bg-white" (click)="toggleDropdown()">
+    @if (selected().length === 0) {
+      <span class="text-gray-400">Select options...</span>
+    }
+
+    @for (item of options(); track item.id) {
+      @if (selected().includes(item.id)) {
+        <span class="options">
+          {{ item.name }}
+          <button
+            type="button"
+            class="cursor-pointer"
+            (click)="removeItem(item.id); $event.stopPropagation()"
+          >
+            ✕
+          </button>
+        </span>
+      }
+    }
+  </div>
+
+  <!-- Dropdown -->
+  @if (isOpen()) {
+    <div class="dropdown-container">
+      @for (item of options(); track item.id) {
+        <div class="dropdown-option" (click)="toggleOption(item.id)">
+          <input type="checkbox" [checked]="selected().includes(item.id)" />
+          {{ item.name }}
+        </div>
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+.btn-details {
+  @apply text-center text-gray-900 font-semibold text-sm w-full m-2 px-4 py-2 border rounded-xl border-gray-400 hover:bg-gray-100 cursor-pointer transition-colors duration-200;
+}

@@ -2,15 +2,15 @@
 @tailwind utilities;
 
 .stat-container {
-  @apply grid mx-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6;
 }
 
 .widget-container {
-  @apply mt-10 mx-6 grid grid-cols-1 lg:grid-cols-3 gap-6;
+  @apply mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6;
 }
 
-.card-text-3xl {
-  @apply text-3xl font-bold mt-2;
+.card-text-4xl {
+  @apply text-4xl font-bold mt-2;
 }
 
 .card-text-sm {
