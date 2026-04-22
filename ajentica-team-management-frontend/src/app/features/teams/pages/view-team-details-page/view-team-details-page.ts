@@ -1,16 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { BackButton } from '../../../../shared/components/back-button/back-button';
 import { EditButton } from '../../../../shared/components/edit-button/edit-button';
 import { Card } from '../../../../shared/card/card';
 import { ProfileInfo } from '../../../../shared/components/profile-info/profile-info';
 import { ViewDetailsButton } from '../../../../shared/components/view-details-button/view-details-button';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { TeamService } from '../../../../core/services/team.service';
 
 @Component({
   selector: 'app-view-team-details-page',
-  imports: [BackButton, EditButton, Card, ProfileInfo, ViewDetailsButton],
+  imports: [BackButton, EditButton, Card, ProfileInfo, ViewDetailsButton, RouterLink],
   templateUrl: './view-team-details-page.html',
   styleUrl: './view-team-details-page.css',
 })
 export class ViewTeamDetailsPage {
   pageName: string = 'Frontend Team';
+  private route = inject(ActivatedRoute);
+  private teamService = inject(TeamService);
+
+  team = computed(() => {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    return this.teamService.getTeamById(id);
+  });
 }

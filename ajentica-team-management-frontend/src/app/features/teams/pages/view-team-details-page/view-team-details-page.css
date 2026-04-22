@@ -7,3 +7,7 @@
 section {
   @apply my-6;
 }
+
+.lead-container {
+  @apply w-1/3 pr-4;
+}
