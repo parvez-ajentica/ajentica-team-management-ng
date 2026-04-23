@@ -1,1 +1,38 @@
-<p>view-member-details-page works!</p>
+<app-back-button></app-back-button>
+
+<section>
+  <header class="flex justify-between">
+    <div class="flex gap-8">
+      <div class="profile-image-container"></div>
+      <div>
+        <h1>Jhon doe</h1>
+        <h4>Senior Frontent Engineer</h4>
+        <p>jhon@doe.com</p>
+      </div>
+    </div>
+    <app-edit-button class="my-auto"></app-edit-button>
+  </header>
+</section>
+
+<section>
+  <div class="grid grid-cols-3 gap-4">
+    <app-card class="col-span-2">
+      <div>
+        <h3 class="mb-2">About</h3>
+        <p class="my-2">Full-stack developer with 14 years of experience</p>
+      </div>
+      <div>
+        <h3>Teams</h3>
+        <p class="my-2">Frontend</p>
+      </div>
+      <div>
+        <h3>Projects</h3>
+        <p class="my-2">Project A</p>
+      </div>
+    </app-card>
+    <app-card>
+      <h3>Activity</h3>
+      <p class="my-4">Edited task "Implement auth" • 2 days ago Commented on PR #42 • 5 days ago</p>
+    </app-card>
+  </div>
+</section>
