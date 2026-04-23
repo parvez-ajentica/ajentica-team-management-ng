@@ -1,10 +1,9 @@
 import { Component, signal, computed } from '@angular/core';
 import { MultiSelect } from '../../../../shared/components/multi-select/multi-select';
-import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'app-add-edit-member-form',
-  imports: [MultiSelect, JsonPipe],
+  imports: [MultiSelect],
   templateUrl: './add-edit-member-form.html',
   styleUrl: './add-edit-member-form.css',
 })
