@@ -1,1 +1,57 @@
-<p>add-edit-project-form works!</p>
+<app-back-button></app-back-button>
+<div class="page-container">
+  <h1 class="header-reset page-name">{{ pageName() }}</h1>
+
+  <form class="form-container" (submit)="submit(); $event.preventDefault()">
+    <!-- Project Name -->
+    <div>
+      <label class="label">Project Name</label>
+      <input
+        type="text"
+        class="input form-input"
+        [value]="projectName()"
+        (input)="setValue(projectName, $any($event.target).value)"
+      />
+    </div>
+
+    <!-- Teams -->
+    <div>
+      <label class="label">Teams</label>
+      <app-multi-select
+        [options]="teamList()"
+        [selected]="teams()"
+        (selectedChange)="teams.set($event)"
+      ></app-multi-select>
+    </div>
+
+    <div class="multi-select-container">
+      <div>
+        <label class="label">Due Date</label>
+        <input
+          type="date"
+          class="input form-input w-3/4"
+          [value]="dueDate()"
+          (change)="setValue(dueDate, $any($event.target).value)"
+        />
+      </div>
+
+      <!-- Progress -->
+      <div>
+        <label class="label">Progress (%)</label>
+        <input
+          type="number"
+          min="0"
+          max="100"
+          class="input form-input"
+          [value]="progress() ?? ''"
+          (input)="setProgress($any($event.target).value)"
+        />
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="text-center">
+      <button class="btn-submit" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
