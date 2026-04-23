@@ -16,7 +16,7 @@
               <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
             </button>
 
-            <button class="btn-icon">
+            <button (click)="openModal('This Project')" class="btn-icon">
               <svg lucideTrash [size]="20" [strokeWidth]="1"></svg>
             </button>
           </div>
@@ -24,14 +24,9 @@
 
         <!-- Teams -->
         <h4>Teams:</h4>
-        <div>
-          @for (team of project.teams; track $index; let last = $last) {
-            <p>
-              {{ team }}
-              @if (!last) {
-                ,
-              }
-            </p>
+        <div class="team-container">
+          @for (team of project.teams; track $index) {
+            <button class="name-btn">{{ team }}</button>
           }
         </div>
 
@@ -46,3 +41,10 @@
     }
   </div>
 </section>
+
+<app-confirm-modal
+  [isOpen]="isModalOpen()"
+  [itemName]="selectedName()"
+  (confirm)="handleConfirm()"
+  (cancel)="closeModal()"
+></app-confirm-modal>

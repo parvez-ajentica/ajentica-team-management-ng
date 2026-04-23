@@ -27,11 +27,8 @@
       <div>
         <h3>Teams</h3>
         <p class="my-2">
-          @for (team of member()?.teams; track $index; let last = $last) {
-            {{ team }}
-            @if (!$last) {
-              ,
-            }
+          @for (team of member()?.teams; track $index) {
+            <button class="name-btn">{{ team }}</button> <a></a>
           }
         </p>
       </div>
@@ -39,10 +36,7 @@
         <h3>Projects</h3>
         <p class="my-2">
           @for (project of member()?.projects; track $index; let last = $last) {
-            {{ project }}
-            @if (!last) {
-              ,
-            }
+            <button class="name-btn">{{ project }}</button> <a></a>
           }
         </p>
       </div>
