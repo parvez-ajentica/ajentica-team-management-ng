@@ -1,13 +1,16 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, input } from '@angular/core';
 import { MultiSelect } from '../../../../shared/components/multi-select/multi-select';
+import { BackButton } from '../../../../shared/components/back-button/back-button';
 
 @Component({
   selector: 'app-add-edit-team-form',
-  imports: [MultiSelect],
+  imports: [MultiSelect, BackButton],
   templateUrl: './add-edit-team-form.html',
   styleUrl: './add-edit-team-form.css',
 })
 export class AddEditTeamForm {
+  pageName = input<string>('');
+
   teamName = signal<string>('');
   lead = signal<number | null>(null);
   projects = signal<number[]>([]);

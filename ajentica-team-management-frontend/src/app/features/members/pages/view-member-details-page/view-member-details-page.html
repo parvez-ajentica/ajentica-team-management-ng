@@ -1,0 +1,57 @@
+<app-back-button></app-back-button>
+
+<section>
+  <header class="flex justify-between">
+    <div class="flex gap-8">
+      <div class="profile-image-container"></div>
+      <div>
+        <h1>{{ member()?.name }}</h1>
+        <h4>{{ member()?.role }}</h4>
+        <p>{{ member()?.email }}</p>
+      </div>
+    </div>
+    <app-edit-button
+      [routerLink]="['/members/edit', member()?.id]"
+      class="my-auto"
+    ></app-edit-button>
+  </header>
+</section>
+
+<section>
+  <div class="grid grid-cols-3 gap-4">
+    <app-card class="col-span-2">
+      <div>
+        <h3 class="mb-2">About</h3>
+        <p class="my-2">{{ member()?.about }}</p>
+      </div>
+      <div>
+        <h3>Teams</h3>
+        <p class="my-2">
+          @for (team of member()?.teams; track $index; let last = $last) {
+            {{ team }}
+            @if (!$last) {
+              ,
+            }
+          }
+        </p>
+      </div>
+      <div>
+        <h3>Projects</h3>
+        <p class="my-2">
+          @for (project of member()?.projects; track $index; let last = $last) {
+            {{ project }}
+            @if (!last) {
+              ,
+            }
+          }
+        </p>
+      </div>
+    </app-card>
+    <app-card>
+      <h3>Activity</h3>
+      @for (item of member()?.activity; track $index) {
+        <p class="my-2 text-sm text-gray-600">{{ item }}</p>
+      }
+    </app-card>
+  </div>
+</section>
