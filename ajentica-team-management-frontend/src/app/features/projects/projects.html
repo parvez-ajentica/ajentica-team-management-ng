@@ -1,7 +1,24 @@
 <h1 class="page-name">{{ pageName }}</h1>
 
-<div>
-  <app-card>
-    <p>this is the layout for card</p>
-  </app-card>
-</div>
+<section>
+  <div class="card-container">
+    <app-card>
+      <div class="card-header">
+        <h3>Project A</h3>
+        <div class="flex gap-2 h-9">
+          <button [routerLink]="['edit']" class="btn-icon">
+            <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
+          </button>
+          <button class="btn-icon">
+            <svg lucideTrash [size]="20" [strokeWidth]="1"></svg>
+          </button>
+        </div>
+      </div>
+      <h4>Teams:</h4>
+      <p>Frontend Team</p>
+      <p>Enginneering team</p>
+      <app-statusbar [value]="75" label="Due:06/24/2026"></app-statusbar>
+      <app-view-details-button [routerLink]="['view-details']"></app-view-details-button>
+    </app-card>
+  </div>
+</section>
