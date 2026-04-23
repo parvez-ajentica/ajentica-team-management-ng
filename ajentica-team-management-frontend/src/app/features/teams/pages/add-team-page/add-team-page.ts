@@ -4,7 +4,7 @@ import { BackButton } from '../../../../shared/components/back-button/back-butto
 
 @Component({
   selector: 'app-add-team-page',
-  imports: [AddEditTeamForm, BackButton],
+  imports: [AddEditTeamForm],
   templateUrl: './add-team-page.html',
   styleUrl: './add-team-page.css',
 })

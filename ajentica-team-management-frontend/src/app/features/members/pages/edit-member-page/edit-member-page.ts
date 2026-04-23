@@ -4,7 +4,7 @@ import { AddEditMemberForm } from '../../components/add-edit-member-form/add-edi
 
 @Component({
   selector: 'app-edit-member-page',
-  imports: [BackButton, AddEditMemberForm],
+  imports: [AddEditMemberForm],
   templateUrl: './edit-member-page.html',
   styleUrl: './edit-member-page.css',
 })
