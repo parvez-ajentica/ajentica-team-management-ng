@@ -4,10 +4,10 @@ import { AddEditTeamForm } from '../../components/add-edit-team-form/add-edit-te
 
 @Component({
   selector: 'app-edit-team-page',
-  imports: [BackButton, AddEditTeamForm],
+  imports: [AddEditTeamForm],
   templateUrl: './edit-team-page.html',
   styleUrl: './edit-team-page.css',
 })
 export class EditTeamPage {
-  pageName: string = 'Upadte Team Info';
+  pageName: string = 'Update Team Info';
 }

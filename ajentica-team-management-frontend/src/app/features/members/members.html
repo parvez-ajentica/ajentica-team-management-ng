@@ -1,4 +1,7 @@
-<h1 class="page-name">{{ pageName }}</h1>
+<div class="head-container">
+  <h1 class="">{{ pageName }}</h1>
+  <app-add-button [routerLink]="['add']" label="Member"></app-add-button>
+</div>
 
 <section>
   <div class="card-container">
@@ -8,10 +11,10 @@
         <div class="flex justify-between">
           <app-profile-info [user]="member"></app-profile-info>
           <div class="flex gap-2">
-            <button [routerLink]="['edit']" class="btn-icon">
+            <button [routerLink]="['edit', member.id]" class="btn-icon">
               <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
             </button>
-            <button (click)="openModal('Team Alpha')" class="btn-icon">
+            <button (click)="openModal('This member')" class="btn-icon">
               <svg lucideTrash [size]="20" [strokeWidth]="1"></svg>
             </button>
           </div>
@@ -34,7 +37,9 @@
         </div>
 
         <div class="mt-3">
-          <app-view-details-button></app-view-details-button>
+          <app-view-details-button
+            [routerLink]="['view-details', member.id]"
+          ></app-view-details-button>
         </div>
       </app-card>
     }
