@@ -1,24 +1,48 @@
-<h1 class="page-name">{{ pageName }}</h1>
+<div class="flex justify-between">
+  <h1 class="page-name">{{ pageName }}</h1>
+  <app-add-button [routerLink]="['add']" label="Project"></app-add-button>
+</div>
 
 <section>
   <div class="card-container">
-    <app-card>
-      <div class="card-header">
-        <h3>Project A</h3>
-        <div class="flex gap-2 h-9">
-          <button [routerLink]="['edit']" class="btn-icon">
-            <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
-          </button>
-          <button class="btn-icon">
-            <svg lucideTrash [size]="20" [strokeWidth]="1"></svg>
-          </button>
+    @for (project of projects(); track project.id) {
+      <app-card>
+        <!-- Header -->
+        <div class="card-header">
+          <h3>{{ project.name }}</h3>
+
+          <div class="flex gap-2 h-9">
+            <button [routerLink]="['edit', project.id]" class="btn-icon">
+              <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
+            </button>
+
+            <button class="btn-icon">
+              <svg lucideTrash [size]="20" [strokeWidth]="1"></svg>
+            </button>
+          </div>
         </div>
-      </div>
-      <h4>Teams:</h4>
-      <p>Frontend Team</p>
-      <p>Enginneering team</p>
-      <app-statusbar [value]="75" label="Due:06/24/2026"></app-statusbar>
-      <app-view-details-button [routerLink]="['view-details']"></app-view-details-button>
-    </app-card>
+
+        <!-- Teams -->
+        <h4>Teams:</h4>
+        <div>
+          @for (team of project.teams; track $index; let last = $last) {
+            <p>
+              {{ team }}
+              @if (!last) {
+                ,
+              }
+            </p>
+          }
+        </div>
+
+        <!-- Status -->
+        <app-statusbar [value]="project.progress" [label]="'Due: ' + project.deadline">
+        </app-statusbar>
+
+        <!-- View Details -->
+        <app-view-details-button [routerLink]="['view-details', project.id]">
+        </app-view-details-button>
+      </app-card>
+    }
   </div>
 </section>
