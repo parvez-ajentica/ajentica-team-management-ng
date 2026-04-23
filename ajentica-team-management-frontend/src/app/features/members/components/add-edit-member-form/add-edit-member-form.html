@@ -1,73 +1,77 @@
-<form class="space-y-4 my-4 p-4" (submit)="submit(); $event.preventDefault()">
-  <!-- Full Name -->
-  <div>
-    <label>Full Name</label>
-    <input
-      type="text"
-      class="input form-input"
-      [value]="fullName()"
-      (input)="setValue(fullName, $any($event.target).value)"
-    />
-  </div>
-
-  <!-- Email -->
-  <div>
-    <label>Email</label>
-    <input
-      type="email"
-      class="input form-input"
-      [value]="email()"
-      (input)="setValue(email, $any($event.target).value)"
-    />
-  </div>
-
-  <!-- Designation -->
-  <div>
-    <label>Designation</label>
-    <input
-      type="text"
-      class="input form-input"
-      [value]="designation()"
-      (input)="setValue(designation, $any($event.target).value)"
-    />
-  </div>
-
-  <!-- About -->
-  <div>
-    <label>About</label>
-    <textarea
-      class="input form-input"
-      rows="3"
-      [value]="about()"
-      (input)="setValue(about, $any($event.target).value)"
-    ></textarea>
-  </div>
-
-  <!-- Teams & Projects -->
-  <div class="multi-select-container">
-    <!-- Teams -->
+<app-back-button></app-back-button>
+<div class="page-container">
+  <h1 class="header-reset page-name">{{ pageName() }}</h1>
+  <form class="form-container" (submit)="submit(); $event.preventDefault()">
+    <!-- Full Name -->
     <div>
-      <label>Teams</label>
-      <app-multi-select
-        [options]="teamList()"
-        [selected]="teams()"
-        (selectedChange)="teams.set($event)"
-      ></app-multi-select>
+      <label>Full Name</label>
+      <input
+        type="text"
+        class="input form-input"
+        [value]="fullName()"
+        (input)="setValue(fullName, $any($event.target).value)"
+      />
     </div>
 
-    <!-- Projects -->
+    <!-- Email -->
     <div>
-      <label>Projects</label>
-      <app-multi-select
-        [options]="projectList()"
-        [selected]="projects()"
-        (selectedChange)="projects.set($event)"
-      ></app-multi-select>
+      <label>Email</label>
+      <input
+        type="email"
+        class="input form-input"
+        [value]="email()"
+        (input)="setValue(email, $any($event.target).value)"
+      />
     </div>
-  </div>
 
-  <!-- Submit -->
-  <div class="text-center">
-    <button class="btn-submit" type="submit">Submit</button>
-  </div>
-</form>
+    <!-- Designation -->
+    <div>
+      <label>Designation</label>
+      <input
+        type="text"
+        class="input form-input"
+        [value]="designation()"
+        (input)="setValue(designation, $any($event.target).value)"
+      />
+    </div>
+
+    <!-- About -->
+    <div>
+      <label>About</label>
+      <textarea
+        class="input form-input"
+        rows="3"
+        [value]="about()"
+        (input)="setValue(about, $any($event.target).value)"
+      ></textarea>
+    </div>
+
+    <!-- Teams & Projects -->
+    <div class="multi-select-container">
+      <!-- Teams -->
+      <div>
+        <label>Teams</label>
+        <app-multi-select
+          [options]="teamList()"
+          [selected]="teams()"
+          (selectedChange)="teams.set($event)"
+        ></app-multi-select>
+      </div>
+
+      <!-- Projects -->
+      <div>
+        <label>Projects</label>
+        <app-multi-select
+          [options]="projectList()"
+          [selected]="projects()"
+          (selectedChange)="projects.set($event)"
+        ></app-multi-select>
+      </div>
+    </div>
+
+    <!-- Submit -->
+    <div class="text-center">
+      <button class="btn-submit" type="submit">Submit</button>
+    </div>
+  </form>
+</div>

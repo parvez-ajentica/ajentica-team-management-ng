@@ -14,6 +14,13 @@
 .option-container {
   @apply flex flex-col gap-1;
 }
+.page-name {
+  @apply text-center;
+}
+
+.page-container {
+  @apply w-3/5 mx-auto;
+}
 
 label {
   @apply font-semibold;

@@ -1,13 +1,16 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, signal, computed, input } from '@angular/core';
 import { MultiSelect } from '../../../../shared/components/multi-select/multi-select';
+import { BackButton } from '../../../../shared/components/back-button/back-button';
 
 @Component({
   selector: 'app-add-edit-member-form',
-  imports: [MultiSelect],
+  imports: [MultiSelect, BackButton],
   templateUrl: './add-edit-member-form.html',
   styleUrl: './add-edit-member-form.css',
 })
 export class AddEditMemberForm {
+  pageName = input<string>('');
+
   fullName = signal('');
   email = signal('');
   designation = signal('');

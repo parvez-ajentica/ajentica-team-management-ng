@@ -4,10 +4,10 @@ import { AddEditMemberForm } from '../../components/add-edit-member-form/add-edi
 
 @Component({
   selector: 'app-add-member-page',
-  imports: [BackButton, AddEditMemberForm],
+  imports: [AddEditMemberForm],
   templateUrl: './add-member-page.html',
   styleUrl: './add-member-page.css',
 })
 export class AddMemberPage {
-  pageName: string = 'Add new Member';
+  pageName: string = 'Add New Member';
 }
