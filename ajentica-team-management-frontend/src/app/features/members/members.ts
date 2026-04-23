@@ -6,6 +6,7 @@ import { MemberService } from '../../core/services/member.service';
 import { RouterLink } from '@angular/router';
 import { LucideSquarePen, LucideTrash } from '@lucide/angular';
 import { ConfirmModal } from '../../shared/components/confirm-modal/confirm-modal';
+import { AddButton } from '../../shared/components/add-button/add-button';
 
 @Component({
   selector: 'app-members',
@@ -17,6 +18,7 @@ import { ConfirmModal } from '../../shared/components/confirm-modal/confirm-moda
     LucideSquarePen,
     LucideTrash,
     ConfirmModal,
+    AddButton,
   ],
   templateUrl: './members.html',
   styleUrl: './members.css',
