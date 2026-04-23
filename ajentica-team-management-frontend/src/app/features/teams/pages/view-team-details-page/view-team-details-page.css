@@ -9,5 +9,5 @@ section {
 }
 
 .lead-container {
-  @apply w-1/3 pr-4;
+  @apply lg:w-1/3 md:w-2/3 pr-4;
 }
