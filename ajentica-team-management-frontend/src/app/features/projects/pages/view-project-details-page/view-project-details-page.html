@@ -1,6 +1,41 @@
 <app-back-button></app-back-button>
-<section>
+<section class="flex justify-between">
   <div>
     <h1>Project A</h1>
+    <div class="flex gap-4">
+      <h4>Teams:</h4>
+      <p class="my-auto">Frontend Team</p>
+      <p class="my-auto">Backend Team</p>
+    </div>
+    <p>Deadline: 12/31/2026</p>
   </div>
+  <app-edit-button></app-edit-button>
+</section>
+<section class="grid grid-cols-3 gap-4">
+  <app-card class="col-span-2">
+    <div>
+      <h3>Overview</h3>
+      <p>Project Rethink Care is focused on building core platform features.</p>
+    </div>
+    <div>
+      <h3>Members</h3>
+      <div class="flex gap-4 flex-wrap">
+        <p>Jhon Doe</p>
+        <p>Jane Doe</p>
+        <p>Bob Niller</p>
+        <p>Alice Gray</p>
+        <p>Ali Karim</p>
+        <p>Neil Miller</p>
+      </div>
+    </div>
+    <div>
+      <h3>Timeline</h3>
+      <p>Milestone 1- Complete, Milestone 2- In progrees</p>
+    </div>
+  </app-card>
+  <app-card>
+    <h3>Activity</h3>
+    <p>Alice pushed changes • 1 day ago</p>
+    <p>Bob updated design • 3 days ago</p>
+  </app-card>
 </section>
