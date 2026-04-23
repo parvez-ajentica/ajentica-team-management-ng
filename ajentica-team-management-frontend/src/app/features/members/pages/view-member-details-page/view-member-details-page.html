@@ -5,12 +5,15 @@
     <div class="flex gap-8">
       <div class="profile-image-container"></div>
       <div>
-        <h1>Jhon doe</h1>
-        <h4>Senior Frontent Engineer</h4>
-        <p>jhon@doe.com</p>
+        <h1>{{ member()?.name }}</h1>
+        <h4>{{ member()?.role }}</h4>
+        <p>{{ member()?.email }}</p>
       </div>
     </div>
-    <app-edit-button class="my-auto"></app-edit-button>
+    <app-edit-button
+      [routerLink]="['/members/edit', member()?.id]"
+      class="my-auto"
+    ></app-edit-button>
   </header>
 </section>
 
@@ -19,20 +22,36 @@
     <app-card class="col-span-2">
       <div>
         <h3 class="mb-2">About</h3>
-        <p class="my-2">Full-stack developer with 14 years of experience</p>
+        <p class="my-2">{{ member()?.about }}</p>
       </div>
       <div>
         <h3>Teams</h3>
-        <p class="my-2">Frontend</p>
+        <p class="my-2">
+          @for (team of member()?.teams; track $index; let last = $last) {
+            {{ team }}
+            @if (!$last) {
+              ,
+            }
+          }
+        </p>
       </div>
       <div>
         <h3>Projects</h3>
-        <p class="my-2">Project A</p>
+        <p class="my-2">
+          @for (project of member()?.projects; track $index; let last = $last) {
+            {{ project }}
+            @if (!last) {
+              ,
+            }
+          }
+        </p>
       </div>
     </app-card>
     <app-card>
       <h3>Activity</h3>
-      <p class="my-4">Edited task "Implement auth" • 2 days ago Commented on PR #42 • 5 days ago</p>
+      @for (item of member()?.activity; track $index) {
+        <p class="my-2 text-sm text-gray-600">{{ item }}</p>
+      }
     </app-card>
   </div>
 </section>
