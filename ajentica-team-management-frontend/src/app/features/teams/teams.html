@@ -21,12 +21,8 @@
         <p>
           Team lead: <button class="name-btn">{{ team.lead.name }}</button>
         </p>
-        <p class="my-4">
-          Members: <button class="name-btn">{{ getMemberNames(team) }}</button>
-        </p>
-        <p class="my-4">
-          Projects: <button class="name-btn">{{ getProjectNames(team) }}</button>
-        </p>
+        <p class="my-4 flex flex-wrap gap-2">Members: {{ team.members.length }}</p>
+        <p class="my-4">Projects: {{ team.projects.length }}</p>
         <app-view-details-button [routerLink]="['view-details', team.id]"></app-view-details-button>
       </app-card>
     }

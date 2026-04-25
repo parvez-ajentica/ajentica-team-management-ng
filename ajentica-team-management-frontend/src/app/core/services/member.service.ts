@@ -8,7 +8,7 @@ export class MemberService {
     {
       id: 1,
       name: 'John Doe',
-      role: 'Senior Frontend Engineer',
+      designation: 'Senior Frontend Engineer',
       email: 'john@doe.com',
       about: 'Full-stack developer with 14 years of experience',
       teams: ['Frontend Team'],
@@ -18,7 +18,7 @@ export class MemberService {
     {
       id: 2,
       name: 'Alice',
-      role: 'Backend Developer',
+      designation: 'Backend Developer',
       email: 'alice@mail.com',
       about: 'API specialist',
       teams: ['API Team'],
