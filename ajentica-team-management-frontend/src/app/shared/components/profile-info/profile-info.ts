@@ -8,5 +8,5 @@ import { ImagePlaceholder } from '../image-placeholder/image-placeholder';
   styleUrl: './profile-info.css',
 })
 export class ProfileInfo {
-  user = input<{ name: string; role: string }>();
+  user = input<{ id: number; name: string; email: string; designation: string; about: string }>();
 }

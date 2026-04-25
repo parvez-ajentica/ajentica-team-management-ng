@@ -1,43 +1,48 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable, signal, inject } from '@angular/core';
+import { TeamsApi } from './api/teams.api';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TeamService {
-  private teams = signal([
-    {
-      id: 1,
-      name: 'Team Alpha',
-      lead: {
-        name: 'John Doe',
-        role: 'Senior Frontend Engineer',
-      },
-      members: [
-        { id: 1, name: 'Alice', role: 'Backend Dev' },
-        { id: 2, name: 'Bob', role: 'UI Designer' },
-      ],
-      projects: [
-        {
-          id: 1,
-          name: 'Project Apollo',
-          deadline: '2026-12-31',
-        },
-      ],
-    },
-    {
-      id: 2,
-      name: 'Team Beta',
-      lead: { name: 'Jane Smith', role: 'Lead Dev' },
-      members: [{ id: 2, name: 'Bob', role: 'UI' }],
-      projects: [{ id: 2, name: 'Zeus', deadline: '2027' }],
-    },
-  ]);
+  private api = inject(TeamsApi);
 
-  getTeamById(id: number) {
-    return this.teams().find((team) => team.id === id);
+  private teams = signal<any[]>([]);
+  teams$ = this.teams.asReadonly();
+
+  // ✅ Load from API
+  loadTeams() {
+    this.api.getAll().subscribe((data) => {
+      this.teams.set(data);
+    });
   }
 
   getAllTeams() {
-    return this.teams;
+    return this.teams$;
+  }
+
+  getTeamById(id: number) {
+    return this.teams().find((t) => t.id === id);
+  }
+
+  // ✅ Create
+  addTeam(team: any) {
+    this.api.create(team).subscribe((newTeam) => {
+      this.teams.update((prev) => [...prev, newTeam]);
+    });
+  }
+
+  // ✅ Update
+  updateTeam(id: number, updated: any) {
+    this.api.update(id, updated).subscribe(() => {
+      this.teams.update((prev) => prev.map((t) => (t.id === id ? updated : t)));
+    });
+  }
+
+  // ✅ Delete
+  deleteTeam(id: number) {
+    this.api.delete(id).subscribe(() => {
+      this.teams.update((prev) => prev.filter((t) => t.id !== id));
+    });
   }
 }

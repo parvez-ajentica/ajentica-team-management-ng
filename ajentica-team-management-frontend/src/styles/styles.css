@@ -60,6 +60,9 @@ section {
 .heading-reset {
   @apply m-0 p-0;
 }
+.btn-icon {
+  @apply bg-gray-100 m-auto p-2 cursor-pointer rounded-lg hover:bg-gray-200 transition-colors duration-200;
+}
 
 .btn-add {
   @apply bg-(--color-primary) gap-2 items-center text-white font-semibold text-sm mx-6 my-2 px-4 py-2 rounded-xl hover:bg-(--color-primaryDark) cursor-pointer transition-colors duration-200;
