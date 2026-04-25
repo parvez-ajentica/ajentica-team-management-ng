@@ -12,6 +12,10 @@ import { MemberMainPage } from './features/members/pages/member-main-page/member
 import { AddMemberPage } from './features/members/pages/add-member-page/add-member-page';
 import { EditMemberPage } from './features/members/pages/edit-member-page/edit-member-page';
 import { ViewMemberDetailsPage } from './features/members/pages/view-member-details-page/view-member-details-page';
+import { AddProjectPage } from './features/projects/pages/add-project-page/add-project-page';
+import { EditProjectPage } from './features/projects/pages/edit-project-page/edit-project-page';
+import { ViewProjectDetailsPage } from './features/projects/pages/view-project-details-page/view-project-details-page';
+import { ProjectsMainPage } from './features/projects/pages/projects-main-page/projects-main-page';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
@@ -41,7 +45,13 @@ export const routes: Routes = [
   },
   {
     path: 'projects',
-    component: Projects,
+    component: ProjectsMainPage,
+    children: [
+      { path: '', component: Projects },
+      { path: 'add', component: AddProjectPage },
+      { path: 'edit/:id', component: EditProjectPage },
+      { path: 'view-details/:id', component: ViewProjectDetailsPage },
+    ],
   },
 
   {

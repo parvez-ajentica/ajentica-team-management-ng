@@ -31,7 +31,7 @@
           <div>
             <h3>{{ project.name }}</h3>
             <p>Deadline: {{ project.deadline }}</p>
-            <p>Deadline status</p>
+            <app-statusbar [value]="72" [label]="'Status'"></app-statusbar>
           </div>
           <app-view-details-button></app-view-details-button>
         </app-card>

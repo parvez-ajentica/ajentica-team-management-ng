@@ -6,10 +6,11 @@ import { ProfileInfo } from '../../../../shared/components/profile-info/profile-
 import { ViewDetailsButton } from '../../../../shared/components/view-details-button/view-details-button';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { TeamService } from '../../../../core/services/team.service';
+import { Statusbar } from '../../../../shared/components/statusbar/statusbar';
 
 @Component({
   selector: 'app-view-team-details-page',
-  imports: [BackButton, EditButton, Card, ProfileInfo, ViewDetailsButton, RouterLink],
+  imports: [BackButton, EditButton, Card, ProfileInfo, ViewDetailsButton, RouterLink, Statusbar],
   templateUrl: './view-team-details-page.html',
   styleUrl: './view-team-details-page.css',
 })

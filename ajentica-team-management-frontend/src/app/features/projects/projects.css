@@ -1,0 +1,13 @@
+@import 'tailwindcss';
+@tailwind utilities;
+
+.card-header {
+  @apply flex justify-between items-center mb-4;
+}
+.btn-icon {
+  @apply bg-gray-100 p-2 cursor-pointer rounded-lg hover:bg-gray-200 transition-colors duration-200;
+}
+
+.team-container {
+  @apply flex flex-wrap gap-4;
+}

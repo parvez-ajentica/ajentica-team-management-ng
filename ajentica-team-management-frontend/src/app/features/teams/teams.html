@@ -9,7 +9,7 @@
         <div class="card-header">
           <h3>{{ team.name }}</h3>
 
-          <div class="flex gap-2">
+          <div class="flex gap-2 h-9">
             <button [routerLink]="['edit', team.id]" class="btn-icon">
               <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
             </button>
@@ -18,9 +18,15 @@
             </button>
           </div>
         </div>
-        <p>Team lead: {{ team.lead.name }}</p>
-        <p>Members: {{ getMemberNames(team) }}</p>
-        <p>Projects: {{ getProjectNames(team) }}</p>
+        <p>
+          Team lead: <button class="name-btn">{{ team.lead.name }}</button>
+        </p>
+        <p class="my-4">
+          Members: <button class="name-btn">{{ getMemberNames(team) }}</button>
+        </p>
+        <p class="my-4">
+          Projects: <button class="name-btn">{{ getProjectNames(team) }}</button>
+        </p>
         <app-view-details-button [routerLink]="['view-details', team.id]"></app-view-details-button>
       </app-card>
     }

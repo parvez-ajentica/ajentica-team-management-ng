@@ -10,7 +10,7 @@
         <!-- Profile -->
         <div class="flex justify-between">
           <app-profile-info [user]="member"></app-profile-info>
-          <div class="flex gap-2">
+          <div class="flex gap-2 h-9">
             <button [routerLink]="['edit', member.id]" class="btn-icon">
               <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
             </button>
@@ -24,7 +24,7 @@
         <h4 class="title">Teams:</h4>
         <div>
           @for (team of member.teams; track $index) {
-            <a>{{ team }}</a>
+            <button class="name-btn">{{ team }}</button> <a></a>
           }
         </div>
 
@@ -32,7 +32,7 @@
         <h4 class="title">Projects:</h4>
         <div>
           @for (project of member.projects; track $index) {
-            <a>{{ project }}</a>
+            <button class="name-btn">{{ project }}</button> <a></a>
           }
         </div>
 
