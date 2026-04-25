@@ -29,6 +29,12 @@ export class Teams {
 
   teams = this.teamService.getAllTeams();
 
+  ngOnInit() {
+    this.teamService.loadTeams();
+    console.log('Teams signal:', this.teams);
+    console.log('Teams value:', this.teams());
+  }
+
   getMemberNames(team: any) {
     return team.members.map((m: any) => m.name).join(', ');
   }

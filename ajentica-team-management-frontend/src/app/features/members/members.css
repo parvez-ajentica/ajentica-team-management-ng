@@ -6,9 +6,7 @@
 .title {
   @apply my-2;
 }
-.btn-icon {
-  @apply bg-gray-100 p-2 cursor-pointer rounded-lg hover:bg-gray-200 transition-colors duration-200;
-}
+
 .head-container {
   @apply flex items-center justify-between;
 }

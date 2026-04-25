@@ -10,7 +10,3 @@
 .card-header {
   @apply flex justify-between items-center mb-4;
 }
-
-.btn-icon {
-  @apply bg-gray-100 p-2 cursor-pointer rounded-lg hover:bg-gray-200 transition-colors duration-200;
-}
