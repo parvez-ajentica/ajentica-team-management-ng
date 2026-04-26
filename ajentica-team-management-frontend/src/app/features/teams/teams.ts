@@ -35,28 +35,32 @@ export class Teams {
     console.log('Teams value:', this.teams());
   }
 
-  getMemberNames(team: any) {
-    return team.members.map((m: any) => m.name).join(', ');
-  }
-
-  getProjectNames(team: any) {
-    return team.projects.map((p: any) => p.name).join(', ');
-  }
-
+  selectedTeamId = signal<number | null>(null);
+  selectedName = signal<string>('');
   isModalOpen = signal(false);
-  selectedName = signal('');
 
-  openModal(name: string) {
-    this.selectedName.set(name);
+  // ✅ OPEN MODAL
+  openModal(team: any) {
+    this.selectedTeamId.set(team.id);
+    this.selectedName.set(team.name);
     this.isModalOpen.set(true);
   }
 
+  // ✅ CLOSE MODAL
   closeModal() {
     this.isModalOpen.set(false);
+    this.selectedTeamId.set(null);
+    this.selectedName.set('');
   }
 
+  // ✅ CONFIRM DELETE
   handleConfirm() {
-    console.log('Confirmed delete for:', this.selectedName());
+    const id = this.selectedTeamId();
+
+    if (id !== null) {
+      this.teamService.deleteTeam(id);
+    }
+
     this.closeModal();
   }
 }

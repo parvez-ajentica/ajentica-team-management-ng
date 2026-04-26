@@ -41,8 +41,13 @@ export class TeamService {
 
   // ✅ Delete
   deleteTeam(id: number) {
-    this.api.delete(id).subscribe(() => {
-      this.teams.update((prev) => prev.filter((t) => t.id !== id));
+    this.api.delete(id).subscribe({
+      next: () => {
+        this.loadTeams();
+      },
+      error: (err) => {
+        console.error('Delete failed', err);
+      },
     });
   }
 }
