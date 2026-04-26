@@ -25,13 +25,13 @@ export class MemberService {
   }
 
   addMember(member: any) {
-    this.api.create(member).subscribe((newMember) => {
-      this.members.update((prev) => [...prev, newMember]);
+    this.api.create(member).subscribe(() => {
+      this.loadMembers();
     });
   }
   updateMember(id: number, updated: any) {
     this.api.update(id, updated).subscribe(() => {
-      this.members.update((prev) => prev.map((m) => (m.id === id ? updated : m)));
+      this.loadMembers;
     });
   }
 

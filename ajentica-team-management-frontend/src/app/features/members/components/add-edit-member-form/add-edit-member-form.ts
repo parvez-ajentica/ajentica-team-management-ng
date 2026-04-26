@@ -1,6 +1,11 @@
-import { Component, signal, computed, input } from '@angular/core';
+import { Component, signal, computed, inject } from '@angular/core';
 import { MultiSelect } from '../../../../shared/components/multi-select/multi-select';
 import { BackButton } from '../../../../shared/components/back-button/back-button';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { TeamService } from '../../../../core/services/team.service';
+import { MemberService } from '../../../../core/services/member.service';
+import { ProjectsServiceTs } from '../../../../core/services/projects.service.ts';
 
 @Component({
   selector: 'app-add-edit-member-form',
@@ -9,54 +14,72 @@ import { BackButton } from '../../../../shared/components/back-button/back-butto
   styleUrl: './add-edit-member-form.css',
 })
 export class AddEditMemberForm {
-  pageName = input<string>('');
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
 
-  fullName = signal('');
-  email = signal('');
-  designation = signal('');
-  about = signal('');
+  private teamService = inject(TeamService);
+  private memberService = inject(MemberService);
+  private projectService = inject(ProjectsServiceTs);
 
-  teams = signal<number[]>([]);
-  projects = signal<number[]>([]);
+  memberId = Number(this.route.snapshot.paramMap.get('id'));
+  isEditMode = computed(() => !!this.memberId);
 
-  // ======================
-  // DATA
-  // ======================
+  fullName = signal<string>('');
+  email = signal<string>('');
+  designation = signal<string>('');
+  about = signal<string>('');
+  selectedProjects = signal<number[]>([]);
+  selectedTeams = signal<number[]>([]);
 
-  teamList = signal([
-    { id: 1, name: 'Frontend Team' },
-    { id: 2, name: 'Backend Team' },
-    { id: 3, name: 'Design Team' },
-  ]);
+  teamsList = this.teamService.getAllTeams();
+  projectsList = this.projectService.getAllProjects();
 
-  projectList = signal([
-    { id: 1, name: 'Project A' },
-    { id: 2, name: 'Project B' },
-    { id: 3, name: 'Project C' },
-  ]);
+  pageName = computed(() => (this.isEditMode() ? 'Edit Member' : 'Add Member'));
 
-  // ======================
-  // DERIVED STATE
-  // ======================
+  ngOnInit() {
+    this.memberService.loadMembers();
+    this.teamService.loadTeams();
+    this.projectService.loadProjects();
 
-  formValue = computed(() => ({
-    fullName: this.fullName(),
-    email: this.email(),
-    designation: this.designation(),
-    about: this.about(),
-    teams: this.teams(),
-    projects: this.projects(),
-  }));
+    if (this.isEditMode()) {
+      const member = this.memberService.getMemberById(this.memberId);
+
+      if (member) {
+        this.fullName.set(member.name);
+        this.email.set(member.email);
+        this.about.set(member.about);
+        this.designation.set(member.designation);
+
+        this.selectedProjects.set(member.projects.map((p: any) => p.id));
+        this.selectedTeams.set(member.teams.map((t: any) => t.id));
+      }
+    }
+  }
+
+  setValue(signalRef: any, value: any) {
+    signalRef.set(value);
+  }
 
   // ======================
   // HANDLERS
   // ======================
 
-  setValue(signalFn: any, value: string) {
-    signalFn.set(value);
-  }
-
   submit() {
-    console.log('Member Form:', this.formValue());
+    const payload = {
+      name: this.fullName(),
+      email: this.email(),
+      designation: this.designation(),
+      about: this.about(),
+      teamIds: this.selectedTeams().map(Number),
+      projectIds: this.selectedProjects().map(Number),
+    };
+    console.log('Payload', payload);
+
+    if (this.isEditMode()) {
+      this.memberService.updateMember(this.memberId, payload);
+    } else {
+      this.memberService.addMember(payload);
+    }
+    this.router.navigate(['/members']);
   }
 }
