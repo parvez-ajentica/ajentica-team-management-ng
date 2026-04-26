@@ -36,20 +36,31 @@ export class Members {
     console.log('The member Value', this.members());
   }
 
+  selectedMemberId = signal<number | null>(null);
+  selectedName = signal<string>('');
   isModalOpen = signal(false);
-  selectedName = signal('');
 
-  openModal(name: string) {
-    this.selectedName.set(name);
+  openModal(member: any) {
+    this.selectedMemberId.set(member.id);
+    this.selectedName.set(member.name);
     this.isModalOpen.set(true);
   }
 
+  // ✅ CLOSE MODAL
   closeModal() {
     this.isModalOpen.set(false);
+    this.selectedMemberId.set(null);
+    this.selectedName.set('');
   }
 
+  // ✅ CONFIRM DELETE
   handleConfirm() {
-    console.log('Confirmed delete for:', this.selectedName());
+    const id = this.selectedMemberId();
+
+    if (id !== null) {
+      this.memberService.deleteMember(id);
+    }
+
     this.closeModal();
   }
 }

@@ -31,7 +31,7 @@ export class MemberService {
   }
   updateMember(id: number, updated: any) {
     this.api.update(id, updated).subscribe(() => {
-      this.loadMembers;
+      this.loadMembers();
     });
   }
 
