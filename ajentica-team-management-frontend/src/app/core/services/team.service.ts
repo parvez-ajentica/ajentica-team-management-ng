@@ -27,15 +27,15 @@ export class TeamService {
 
   // ✅ Create
   addTeam(team: any) {
-    this.api.create(team).subscribe((newTeam) => {
-      this.teams.update((prev) => [...prev, newTeam]);
+    this.api.create(team).subscribe(() => {
+      this.loadTeams(); // ✅ same here
     });
   }
 
   // ✅ Update
   updateTeam(id: number, updated: any) {
     this.api.update(id, updated).subscribe(() => {
-      this.teams.update((prev) => prev.map((t) => (t.id === id ? updated : t)));
+      this.loadTeams(); // ✅ reload correct shape
     });
   }
 
