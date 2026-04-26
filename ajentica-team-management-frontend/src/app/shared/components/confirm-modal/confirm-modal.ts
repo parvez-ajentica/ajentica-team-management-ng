@@ -1,4 +1,4 @@
-import { Component, input, output, signal } from '@angular/core';
+import { Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-confirm-modal',
@@ -8,7 +8,6 @@ import { Component, input, output, signal } from '@angular/core';
 })
 export class ConfirmModal {
   itemName = input<string>('');
-
   isOpen = input<boolean>(false);
 
   confirm = output<void>();

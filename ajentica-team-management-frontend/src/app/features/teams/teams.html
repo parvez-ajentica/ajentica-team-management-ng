@@ -13,7 +13,7 @@
             <button [routerLink]="['/teams/edit', team.id]" class="btn-icon">
               <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
             </button>
-            <button (click)="openModal('Team Alpha')" class="btn-icon">
+            <button (click)="openModal(team)" class="btn-icon">
               <svg lucideTrash [size]="20" [strokeWidth]="1"></svg>
             </button>
           </div>
