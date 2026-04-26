@@ -1,6 +1,31 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { environment } from '../../../../environments/environments';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
-export class MembersApi {}
+export class MembersApi {
+  private http = inject(HttpClient);
+  private baseUrl = `${environment.apiUrl}/members`;
+
+  getAll() {
+    return this.http.get<any[]>(this.baseUrl);
+  }
+
+  getById(id: number) {
+    return this.http.get<any>(`${this.baseUrl}/${id}`);
+  }
+
+  create(member: any) {
+    return this.http.post(this.baseUrl, member);
+  }
+
+  update(id: number, member: any) {
+    return this.http.put(`${this.baseUrl}/${id}`, member);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  }
+}
