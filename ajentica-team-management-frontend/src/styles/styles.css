@@ -54,7 +54,7 @@ h4 {
   @apply text-lg font-medium;
 }
 section {
-  @apply my-6;
+  @apply py-6;
 }
 
 .heading-reset {

@@ -5,9 +5,9 @@
 }
 
 .right-container {
-  @apply w-5/6 mx-12 overflow-y-auto;
+  @apply w-full px-12 overflow-y-auto;
 }
 
 .sidebar {
-  @apply lg:w-1/6 h-full overflow-y-auto;
+  @apply w-64 h-full overflow-y-auto;
 }
