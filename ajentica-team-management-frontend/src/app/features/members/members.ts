@@ -30,6 +30,12 @@ export class Members {
 
   members = this.memberService.getAllMembers();
 
+  ngOnInit() {
+    this.memberService.loadMembers();
+    console.log('The Member signal', this.members);
+    console.log('The member Value', this.members());
+  }
+
   isModalOpen = signal(false);
   selectedName = signal('');
 

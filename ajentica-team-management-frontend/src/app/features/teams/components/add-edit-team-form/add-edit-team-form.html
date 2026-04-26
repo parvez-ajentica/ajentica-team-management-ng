@@ -5,45 +5,57 @@
   <form class="form-container" (submit)="submit(); $event.preventDefault()">
     <div class="option-container">
       <label for="">Team name</label>
-      <input type="text" name="" id="" class="input form-input" />
-    </div>
-
-    <div class="option-container">
-      <label>Lead</label>
-      <select
-        [value]="lead()"
-        (change)="setLead($any($event.target).value)"
+      <input
+        type="text"
         class="input form-input"
-      >
-        <option value="">Select Lead</option>
-        @for (l of leads(); track l.id) {
-          <option [value]="l.id">{{ l.name }}</option>
-        }
-      </select>
+        [value]="teamName()"
+        (input)="setValue(teamName, $any($event.target).value)"
+      />
     </div>
 
     <div class="flex gap-4 w-full h-40">
       <div class="selection option-container">
         <label class="label">Projects</label>
         <app-multi-select
-          [options]="projectList()"
-          [selected]="projects()"
-          (selectedChange)="projects.set($event)"
+          [options]="projectsList()"
+          [selected]="selectedProjects()"
+          (selectedChange)="selectedProjects.set($event)"
         ></app-multi-select>
       </div>
 
       <div class="selection option-container">
         <label class="label">Members</label>
         <app-multi-select
-          [options]="memberList()"
-          [selected]="members()"
-          (selectedChange)="members.set($event)"
+          [options]="membersList()"
+          [selected]="selectedMembers()"
+          (selectedChange)="selectedMembers.set($event)"
         ></app-multi-select>
       </div>
     </div>
 
+    <div class="option-container">
+      <label>Lead</label>
+      <select
+        [disabled]="isLeadDisabled()"
+        [value]="lead()"
+        (change)="setLead($any($event.target).value)"
+        (click)="handleLeadClick()"
+        class="input form-input"
+      >
+        <option [value]="leadName()">{{ leadName() }}</option>
+        @for (l of leadOptions(); track l.id) {
+          <option [value]="l.id">{{ l.name }}</option>
+        }
+      </select>
+      @if (showLeadWarning()) {
+        <p class="text-sm text-red-500 mt-1">Please select members first</p>
+      }
+    </div>
+
     <div class="text-center">
-      <button class="btn-submit" type="submit">Submit</button>
+      <button class="btn-submit" type="submit">
+        {{ isEditMode() ? 'Update Team' : 'Create Team' }}
+      </button>
     </div>
   </form>
 </div>

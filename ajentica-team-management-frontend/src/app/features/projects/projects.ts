@@ -29,6 +29,10 @@ export class Projects {
 
   projects = this.projectService.getAllProjects();
 
+  ngOnInit() {
+    this.projectService.loadProjects(); //  fetch from API
+  }
+
   isModalOpen = signal(false);
   selectedName = signal('');
 

@@ -1,8 +1,5 @@
 @import 'tailwindcss';
 
-.name {
-  @apply my-4;
-}
 .title {
   @apply my-2;
 }

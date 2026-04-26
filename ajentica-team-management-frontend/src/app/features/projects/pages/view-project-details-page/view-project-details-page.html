@@ -5,7 +5,7 @@
     <div class="flex gap-4">
       <h4>Teams:</h4>
       @for (team of project()?.teams; track $index) {
-        <p class="my-auto">{{ team }}</p>
+        <p class="my-auto">{{ team.name }}</p>
       }
     </div>
     <p>Deadline: {{ project()?.deadline }}</p>
@@ -16,13 +16,13 @@
   <app-card class="col-span-2">
     <div class="mb-6">
       <h3 class="my-2">Overview</h3>
-      <p>{{ project()?.overview }}</p>
+      <p>{{ project()?.description }}</p>
     </div>
     <div class="my-4">
       <h3 class="mb-2">Members</h3>
       <div class="flex gap-4 flex-wrap">
         @for (member of project()?.members; track $index) {
-          <button class="name-btn">{{ member }}</button>
+          <button class="name-btn">{{ member.name }}</button>
         }
       </div>
     </div>

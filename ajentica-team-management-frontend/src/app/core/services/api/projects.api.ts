@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable, inject } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { environment } from '../../../../environments/environments';
 
 @Injectable({
   providedIn: 'root',
 })
-export class TeamsApi {
+export class ProjectsApi {
   private http = inject(HttpClient);
-  private baseUrl = `${environment.apiUrl}/teams`;
+  private baseUrl = `${environment.apiUrl}/projects`;
 
   getAll() {
     return this.http.get<any[]>(this.baseUrl);
@@ -17,12 +17,12 @@ export class TeamsApi {
     return this.http.get<any>(`${this.baseUrl}/${id}`);
   }
 
-  create(team: any) {
-    return this.http.post(this.baseUrl, team);
+  create(project: any) {
+    return this.http.post(this.baseUrl, project);
   }
 
-  update(id: number, team: any) {
-    return this.http.put(`${this.baseUrl}/${id}`, team);
+  update(id: number, project: any) {
+    return this.http.put(`${this.baseUrl}/${id}`, project);
   }
 
   delete(id: number) {

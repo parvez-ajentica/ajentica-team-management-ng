@@ -7,7 +7,7 @@
 }
 
 .option-selector {
-  @apply border border-gray-300 shadow-lg rounded-lg px-3 py-2 flex flex-wrap gap-2 cursor-pointer min-h-12;
+  @apply border border-gray-300 shadow rounded-lg px-3 py-2 flex flex-wrap gap-2 cursor-pointer min-h-12;
 }
 
 .options {
