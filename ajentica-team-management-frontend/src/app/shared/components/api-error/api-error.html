@@ -1,0 +1,15 @@
+<div class="error-page-container">
+  <div class="error-body">
+    <h1 class="header-reset">{{ errorCode }}</h1>
+
+    <h2 class="header-reset">{{ errorTitle }}</h2>
+
+    <p>{{ errorMessage }}</p>
+
+    <div class="btn-container">
+      <button (click)="retry()" class="btn-retry">Retry</button>
+
+      <button (click)="goBack()" class="btn-go-back">Go Back</button>
+    </div>
+  </div>
+</div>

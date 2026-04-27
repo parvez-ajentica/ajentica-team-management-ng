@@ -10,10 +10,19 @@ export class TeamService {
   private teams = signal<any[]>([]);
   teams$ = this.teams.asReadonly();
 
+  private apiError = signal<any>(null);
+  apiError$ = this.apiError.asReadonly();
+
   // ✅ Load from API
   loadTeams() {
-    this.api.getAll().subscribe((data) => {
-      this.teams.set(data);
+    this.apiError.set(null);
+    this.api.getAll().subscribe({
+      next: (data) => {
+        this.teams.set(data);
+      },
+      error: (error) => {
+        this.apiError.set(error);
+      },
     });
   }
 
