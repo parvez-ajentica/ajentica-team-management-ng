@@ -31,7 +31,10 @@
         </div>
 
         <!-- Status -->
-        <app-statusbar [value]="project.progress" [label]="'Due: ' + project.deadline">
+        <app-statusbar
+          [value]="project.progress"
+          [label]="'Due: ' + dateConverter(project.deadline)"
+        >
         </app-statusbar>
 
         <!-- View Details -->

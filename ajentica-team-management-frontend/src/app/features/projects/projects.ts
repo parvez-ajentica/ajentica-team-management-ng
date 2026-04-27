@@ -29,6 +29,10 @@ export class Projects {
 
   projects = this.projectService.getAllProjects();
 
+  dateConverter(date: string) {
+    return new Date(date).toISOString().split('T')[0];
+  }
+
   ngOnInit() {
     this.projectService.loadProjects(); //  fetch from API
   }
