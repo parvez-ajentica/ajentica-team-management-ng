@@ -37,20 +37,31 @@ export class Projects {
     this.projectService.loadProjects(); //  fetch from API
   }
 
+  selectedProjectId = signal<number | null>(null);
+  selectedName = signal<string>('');
   isModalOpen = signal(false);
-  selectedName = signal('');
 
-  openModal(name: string) {
-    this.selectedName.set(name);
+  openModal(project: any) {
+    this.selectedProjectId.set(project.id);
+    this.selectedName.set(project.name);
     this.isModalOpen.set(true);
   }
 
+  // ✅ CLOSE MODAL
   closeModal() {
     this.isModalOpen.set(false);
+    this.selectedProjectId.set(null);
+    this.selectedName.set('');
   }
 
+  // ✅ CONFIRM DELETE
   handleConfirm() {
-    console.log('Confirmed delete for:', this.selectedName());
+    const id = this.selectedProjectId();
+
+    if (id !== null) {
+      this.projectService.deleteProject(id);
+    }
+
     this.closeModal();
   }
 }
