@@ -10,10 +10,19 @@ export class ProjectsServiceTs {
   private projects = signal<any[]>([]);
   projects$ = this.projects.asReadonly();
 
+  private apiError = signal<any>(null);
+  apiError$ = this.apiError.asReadonly();
+
   //  Load from API
   loadProjects() {
-    this.api.getAll().subscribe((data) => {
-      this.projects.set(data);
+    this.apiError.set(null);
+    this.api.getAll().subscribe({
+      next: (data) => {
+        this.projects.set(data);
+      },
+      error: (error) => {
+        this.apiError.set(error);
+      },
     });
   }
 

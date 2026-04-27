@@ -10,9 +10,18 @@ export class MemberService {
   private members = signal<any[]>([]);
   members$ = this.members.asReadonly();
 
+  private apiError = signal<any>(null);
+  apiError$ = this.apiError.asReadonly();
+
   loadMembers() {
-    this.api.getAll().subscribe((data) => {
-      this.members.set(data);
+    this.apiError.set(null);
+    this.api.getAll().subscribe({
+      next: (data) => {
+        this.members.set(data);
+      },
+      error: (error) => {
+        this.apiError.set(error);
+      },
     });
   }
 

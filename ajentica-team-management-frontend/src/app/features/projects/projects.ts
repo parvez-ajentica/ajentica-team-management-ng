@@ -7,6 +7,7 @@ import { Statusbar } from '../../shared/components/statusbar/statusbar';
 import { ProjectsServiceTs } from '../../core/services/projects.service.ts';
 import { AddButton } from '../../shared/components/add-button/add-button';
 import { ConfirmModal } from '../../shared/components/confirm-modal/confirm-modal';
+import { ApiError } from '../../shared/components/api-error/api-error';
 
 @Component({
   selector: 'app-projects',
@@ -19,6 +20,7 @@ import { ConfirmModal } from '../../shared/components/confirm-modal/confirm-moda
     Statusbar,
     AddButton,
     ConfirmModal,
+    ApiError,
   ],
   templateUrl: './projects.html',
   styleUrl: './projects.css',
@@ -28,6 +30,7 @@ export class Projects {
   private projectService = inject(ProjectsServiceTs);
 
   projects = this.projectService.getAllProjects();
+  apiError = this.projectService.apiError$;
 
   dateConverter(date: string) {
     return new Date(date).toISOString().split('T')[0];
@@ -63,5 +66,10 @@ export class Projects {
     }
 
     this.closeModal();
+  }
+
+  // ✅ RETRY LOADING
+  handleRetry() {
+    this.projectService.loadProjects();
   }
 }

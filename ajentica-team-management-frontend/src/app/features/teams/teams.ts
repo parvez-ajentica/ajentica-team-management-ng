@@ -6,6 +6,7 @@ import { RouterLink } from '@angular/router';
 import { ViewDetailsButton } from '../../shared/components/view-details-button/view-details-button';
 import { ConfirmModal } from '../../shared/components/confirm-modal/confirm-modal';
 import { TeamService } from '../../core/services/team.service';
+import { ApiError } from '../../shared/components/api-error/api-error';
 
 @Component({
   selector: 'app-teams',
@@ -18,6 +19,7 @@ import { TeamService } from '../../core/services/team.service';
     RouterLink,
     ViewDetailsButton,
     ConfirmModal,
+    ApiError,
   ],
   templateUrl: './teams.html',
   styleUrl: './teams.css',
@@ -28,11 +30,10 @@ export class Teams {
   private teamService = inject(TeamService);
 
   teams = this.teamService.getAllTeams();
+  apiError = this.teamService.apiError$;
 
   ngOnInit() {
     this.teamService.loadTeams();
-    console.log('Teams signal:', this.teams);
-    console.log('Teams value:', this.teams());
   }
 
   selectedTeamId = signal<number | null>(null);
@@ -62,5 +63,10 @@ export class Teams {
     }
 
     this.closeModal();
+  }
+
+  // ✅ RETRY LOADING
+  handleRetry() {
+    this.teamService.loadTeams();
   }
 }

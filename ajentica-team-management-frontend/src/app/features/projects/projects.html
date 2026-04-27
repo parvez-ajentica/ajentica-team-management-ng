@@ -1,53 +1,57 @@
-<div class="flex justify-between">
-  <h1 class="page-name">{{ pageName }}</h1>
-  <app-add-button [routerLink]="['add']" label="Project"></app-add-button>
-</div>
-
-<section>
-  <div class="card-container">
-    @for (project of projects(); track project.id) {
-      <app-card>
-        <!-- Header -->
-        <div class="card-header">
-          <h3>{{ project.name }}</h3>
-
-          <div class="flex gap-2 h-9">
-            <button [routerLink]="['edit', project.id]" class="btn-icon">
-              <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
-            </button>
-
-            <button (click)="openModal(project)" class="btn-icon">
-              <svg lucideTrash [size]="20" [strokeWidth]="1"></svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- Teams -->
-        <h4>Teams:</h4>
-        <div class="team-container">
-          @for (team of project.teams; track $index) {
-            <button class="name-btn">{{ team.name }}</button>
-          }
-        </div>
-
-        <!-- Status -->
-        <app-statusbar
-          [value]="project.progress"
-          [label]="'Due: ' + dateConverter(project.deadline)"
-        >
-        </app-statusbar>
-
-        <!-- View Details -->
-        <app-view-details-button [routerLink]="['view-details', project.id]">
-        </app-view-details-button>
-      </app-card>
-    }
+@if (apiError()) {
+  <app-api-error [error]="apiError()" (onRetry)="handleRetry()"></app-api-error>
+} @else {
+  <div class="flex justify-between">
+    <h1 class="page-name">{{ pageName }}</h1>
+    <app-add-button [routerLink]="['add']" label="Project"></app-add-button>
   </div>
-</section>
 
-<app-confirm-modal
-  [isOpen]="isModalOpen()"
-  [itemName]="selectedName()"
-  (confirm)="handleConfirm()"
-  (cancel)="closeModal()"
-></app-confirm-modal>
+  <section>
+    <div class="card-container">
+      @for (project of projects(); track project.id) {
+        <app-card>
+          <!-- Header -->
+          <div class="card-header">
+            <h3>{{ project.name }}</h3>
+
+            <div class="flex gap-2 h-9">
+              <button [routerLink]="['edit', project.id]" class="btn-icon">
+                <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
+              </button>
+
+              <button (click)="openModal(project)" class="btn-icon">
+                <svg lucideTrash [size]="20" [strokeWidth]="1"></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- Teams -->
+          <h4>Teams:</h4>
+          <div class="team-container">
+            @for (team of project.teams; track $index) {
+              <button class="name-btn">{{ team.name }}</button>
+            }
+          </div>
+
+          <!-- Status -->
+          <app-statusbar
+            [value]="project.progress"
+            [label]="'Due: ' + dateConverter(project.deadline)"
+          >
+          </app-statusbar>
+
+          <!-- View Details -->
+          <app-view-details-button [routerLink]="['view-details', project.id]">
+          </app-view-details-button>
+        </app-card>
+      }
+    </div>
+  </section>
+
+  <app-confirm-modal
+    [isOpen]="isModalOpen()"
+    [itemName]="selectedName()"
+    (confirm)="handleConfirm()"
+    (cancel)="closeModal()"
+  ></app-confirm-modal>
+}

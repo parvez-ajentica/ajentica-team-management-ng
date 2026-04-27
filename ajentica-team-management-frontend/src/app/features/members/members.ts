@@ -7,6 +7,7 @@ import { RouterLink } from '@angular/router';
 import { LucideSquarePen, LucideTrash } from '@lucide/angular';
 import { ConfirmModal } from '../../shared/components/confirm-modal/confirm-modal';
 import { AddButton } from '../../shared/components/add-button/add-button';
+import { ApiError } from '../../shared/components/api-error/api-error';
 
 @Component({
   selector: 'app-members',
@@ -19,6 +20,7 @@ import { AddButton } from '../../shared/components/add-button/add-button';
     LucideTrash,
     ConfirmModal,
     AddButton,
+    ApiError,
   ],
   templateUrl: './members.html',
   styleUrl: './members.css',
@@ -29,6 +31,7 @@ export class Members {
   private memberService = inject(MemberService);
 
   members = this.memberService.getAllMembers();
+  apiError = this.memberService.apiError$;
 
   ngOnInit() {
     this.memberService.loadMembers();
@@ -62,5 +65,10 @@ export class Members {
     }
 
     this.closeModal();
+  }
+
+  // ✅ RETRY LOADING
+  handleRetry() {
+    this.memberService.loadMembers();
   }
 }
