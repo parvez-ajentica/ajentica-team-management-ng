@@ -16,7 +16,7 @@
               <svg lucideSquarePen [size]="20" [strokeWidth]="1"></svg>
             </button>
 
-            <button (click)="openModal('This Project')" class="btn-icon">
+            <button (click)="openModal(project)" class="btn-icon">
               <svg lucideTrash [size]="20" [strokeWidth]="1"></svg>
             </button>
           </div>
@@ -31,7 +31,10 @@
         </div>
 
         <!-- Status -->
-        <app-statusbar [value]="project.progress" [label]="'Due: ' + project.deadline">
+        <app-statusbar
+          [value]="project.progress"
+          [label]="'Due: ' + dateConverter(project.deadline)"
+        >
         </app-statusbar>
 
         <!-- View Details -->

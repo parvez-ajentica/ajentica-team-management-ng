@@ -19,8 +19,8 @@
       <label class="label">Teams</label>
       <app-multi-select
         [options]="teamList()"
-        [selected]="teams()"
-        (selectedChange)="teams.set($event)"
+        [selected]="selectedTeams()"
+        (selectedChange)="selectedTeams.set($event)"
       ></app-multi-select>
     </div>
 
@@ -30,8 +30,8 @@
         <input
           type="date"
           class="input form-input w-3/4"
-          [value]="dueDate()"
-          (change)="setValue(dueDate, $any($event.target).value)"
+          [value]="deadline()"
+          (change)="setDate($any($event.target).value)"
         />
       </div>
 

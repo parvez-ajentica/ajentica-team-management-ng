@@ -52,9 +52,9 @@
       <div>
         <label>Teams</label>
         <app-multi-select
-          [options]="teamList()"
-          [selected]="teams()"
-          (selectedChange)="teams.set($event)"
+          [options]="teamsList()"
+          [selected]="selectedTeams()"
+          (selectedChange)="selectedTeams.set($event)"
         ></app-multi-select>
       </div>
 
@@ -62,9 +62,9 @@
       <div>
         <label>Projects</label>
         <app-multi-select
-          [options]="projectList()"
-          [selected]="projects()"
-          (selectedChange)="projects.set($event)"
+          [options]="projectsList()"
+          [selected]="selectedProjects()"
+          (selectedChange)="selectedProjects.set($event)"
         ></app-multi-select>
       </div>
     </div>

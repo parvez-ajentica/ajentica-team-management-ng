@@ -27,15 +27,15 @@ export class ProjectsServiceTs {
 
   //  Create
   addProject(project: any) {
-    this.api.create(project).subscribe((newProject) => {
-      this.projects.update((prev) => [...prev, newProject]);
+    this.api.create(project).subscribe(() => {
+      this.loadProjects();
     });
   }
 
   //  Update
-  updateProject(id: number, updated: any) {
-    this.api.update(id, updated).subscribe(() => {
-      this.projects.update((prev) => prev.map((p) => (p.id === id ? updated : p)));
+  updateProject(id: number, project: any) {
+    this.api.update(id, project).subscribe(() => {
+      this.loadProjects(); // 🔥 keeps UI updated
     });
   }
 
