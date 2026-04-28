@@ -15,8 +15,17 @@ export class ViewProjectDetailsPage {
   private route = inject(ActivatedRoute);
   private projectService = inject(ProjectsServiceTs);
 
+  dateConverter(date: string) {
+    return new Date(date).toISOString().split('T')[0];
+  }
+
+  ngOnInit() {
+    this.projectService.loadProjects();
+  }
+
   project = computed(() => {
     const id = Number(this.route.snapshot.paramMap.get('id'));
+    console.log(id);
     return this.projectService.getProjectById(id);
   });
 }

@@ -18,7 +18,9 @@
       @for (member of team()?.members; track member.id) {
         <app-card>
           <app-profile-info [user]="member"></app-profile-info>
-          <app-view-details-button></app-view-details-button>
+          <app-view-details-button
+            [routerLink]="['/members/view-details', member.id]"
+          ></app-view-details-button>
         </app-card>
       }
     </div>
@@ -33,7 +35,9 @@
             <p>Deadline: {{ project.deadline }}</p>
             <app-statusbar [value]="72" [label]="'Status'"></app-statusbar>
           </div>
-          <app-view-details-button></app-view-details-button>
+          <app-view-details-button
+            [routerLink]="['/projects/view-details', project.id]"
+          ></app-view-details-button>
         </app-card>
       }
     </div>

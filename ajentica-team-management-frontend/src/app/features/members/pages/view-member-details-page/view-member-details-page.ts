@@ -15,6 +15,10 @@ export class ViewMemberDetailsPage {
   private route = inject(ActivatedRoute);
   private memberService = inject(MemberService);
 
+  ngOnInit() {
+    this.memberService.loadMembers();
+  }
+
   member = computed(() => {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     return this.memberService.getMemberById(id);

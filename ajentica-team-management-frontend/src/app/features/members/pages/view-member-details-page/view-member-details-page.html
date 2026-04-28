@@ -28,7 +28,10 @@
         <h3>Teams</h3>
         <p class="my-2">
           @for (team of member()?.teams; track $index) {
-            <button class="name-btn">{{ team.name }}</button> <a></a>
+            <button [routerLink]="['/teams/view-details', team.id]" class="name-btn">
+              {{ team.name }}
+            </button>
+            <a></a>
           }
         </p>
       </div>
@@ -36,7 +39,10 @@
         <h3>Projects</h3>
         <p class="my-2">
           @for (project of member()?.projects; track $index; let last = $last) {
-            <button class="name-btn">{{ project.name }}</button> <a></a>
+            <button [routerLink]="['/projects/view-details', project.id]" class="name-btn">
+              {{ project.name }}
+            </button>
+            <a></a>
           }
         </p>
       </div>

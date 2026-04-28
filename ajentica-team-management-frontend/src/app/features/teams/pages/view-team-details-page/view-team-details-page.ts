@@ -19,6 +19,10 @@ export class ViewTeamDetailsPage {
   private route = inject(ActivatedRoute);
   private teamService = inject(TeamService);
 
+  ngOnInit() {
+    this.teamService.loadTeams();
+  }
+
   team = computed(() => {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     return this.teamService.getTeamById(id);
