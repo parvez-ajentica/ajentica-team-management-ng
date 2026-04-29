@@ -31,7 +31,7 @@
               <div class="team-container">
                 <h4>Teams:</h4>
 
-                <div>
+                <div class="name-container">
                   @for (team of project.teams; track $index) {
                     <button [routerLink]="['/teams/view-details', team.id]" class="name-btn">
                       {{ team.name }}

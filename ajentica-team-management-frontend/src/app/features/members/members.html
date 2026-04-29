@@ -28,12 +28,11 @@
               <!-- Teams -->
               <div>
                 <h4 class="title">Teams:</h4>
-                <div>
+                <div class="name-container">
                   @for (team of member.teams; track $index) {
                     <button [routerLink]="['/teams/view-details', team.id]" class="name-btn">
                       {{ team.name }}
                     </button>
-                    <a></a>
                   }
                 </div>
               </div>
@@ -41,12 +40,11 @@
               <!-- Projects -->
               <div>
                 <h4 class="title">Projects:</h4>
-                <div>
+                <div class="name-container">
                   @for (project of member.projects; track $index) {
                     <button [routerLink]="['/projects/view-details', project.id]" class="name-btn">
                       {{ project.name }}
                     </button>
-                    <a></a>
                   }
                 </div>
               </div>
