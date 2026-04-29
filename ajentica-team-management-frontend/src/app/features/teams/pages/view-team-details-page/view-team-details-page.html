@@ -32,8 +32,8 @@
         <app-card>
           <div>
             <h3>{{ project.name }}</h3>
-            <p>Deadline: {{ project.deadline }}</p>
-            <app-statusbar [value]="72" [label]="'Status'"></app-statusbar>
+            <p>Deadline: {{ dateConverter(project.deadline) }}</p>
+            <app-statusbar [value]="project.progress" [label]="'Status'"></app-statusbar>
           </div>
           <app-view-details-button
             [routerLink]="['/projects/view-details', project.id]"

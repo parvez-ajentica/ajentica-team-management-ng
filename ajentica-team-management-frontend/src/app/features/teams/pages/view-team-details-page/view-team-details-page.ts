@@ -19,6 +19,9 @@ export class ViewTeamDetailsPage {
   private route = inject(ActivatedRoute);
   private teamService = inject(TeamService);
 
+  dateConverter(date: string) {
+    return new Date(date).toISOString().split('T')[0];
+  }
   ngOnInit() {
     this.teamService.loadTeams();
   }
